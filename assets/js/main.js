@@ -155,6 +155,26 @@ $(document).ready(function () {
     selector: '.glightbox'
   });
 
+  glightbox.on('open', () => {
+    if (!music.paused) {
+      music.pause();
+      music.setAttribute('data-paused-by-lightbox', 'true');
+      isPlaying = false;
+      $('#toggle-music').html('<i class="bi bi-music-note-beamed"></i>');
+      $('#toggle-music').attr('title', 'Turn On Background Music');
+    }
+  });
+
+  glightbox.on('close', () => {
+    if (music.getAttribute('data-paused-by-lightbox') === 'true') {
+      music.play();
+      music.removeAttribute('data-paused-by-lightbox');
+      isPlaying = true;
+      $('#toggle-music').html('<i class="bi bi-pause-circle-fill"></i>');
+      $('#toggle-music').attr('title', 'Turn Off Background Music');
+    }
+  });
+
   //===== Initialize Isotope for filtering/sorting grid items =====//
   $('.isotope-layout').each(function () {
     const $this = $(this);
