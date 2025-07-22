@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Ralph Gervacio</title>
+
+  <!-- Favicons -->
+  <link href="assets/img/my-profile-img.png" rel="icon">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="assets/vendor/swal2/css/sweetalert2.min.css" rel="stylesheet">
+  <link href="assets/vendor/animate/css/animate.min.css" rel="stylesheet">
+  <link href="assets/vendor/remixicons/fonts/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/font-awesome/css/all.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+</head>
+
+<body class="index-page">
+
+  <header id="header" class="header d-flex align-items-center sticky-top">
+    <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
+
+      <a href="#" class="logo d-flex align-items-center me-auto me-xl-0">
+        <h1 class="sitename fw-bold text-light">RRDG.</h1>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="#home" class="active"><i class="bi bi-house navicon"></i>&nbsp;Home</a></li>
+          <li><a href="#about"><i class="bi bi-question navicon"></i>&nbsp;About</a></li>
+          <li><a href="#skills"><i class="bi bi-person navicon"></i>&nbsp;Skills</a></li>
+          <li><a href="#resume"><i class="bi bi-file-earmark-text navicon"></i>&nbsp;Resume</a></li>
+          <li><a href="#portfolio"><i class="bi bi-folder navicon"></i>&nbsp;Portfolio</a></li>
+          <li><a href="#services"><i class="bi bi-hdd-stack navicon"></i>&nbsp;Services</a></li>
+          <li><a href="#contact"><i class="bi bi-envelope navicon"></i>&nbsp;Contact</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-folder2-open"></i>
+      </nav>
+
+      <div class="header-social-links">
+        <a href="https://x.com/KiryuiAkumaCNFT" class="twitter"><i class="bi bi-twitter-x"></i></a>
+        <a href="https://www.facebook.com/ralphthegreat2002/" class="facebook"><i class="bi bi-facebook"></i></a>
+        <a href="https://www.instagram.com/rap_ruleland.dev/?hl=en" class="instagram"><i class="bi bi-instagram"></i></a>
+
+        <!-- Background Music -->
+        <audio id="bg-music" loop preload="none">
+          <source src="assets/music/bg-music.mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>
+        <button id="toggle-music" class="music-btn" title="Turn On Background Music">
+          <i class="bi bi-music-note-beamed"></i>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- Music Info Modal -->
+    <div class="modal fade" id="musicInfoModal" tabindex="-1" aria-labelledby="musicInfoModalLabel" aria-hidden="true"
+      data-bs-backdrop="static" data-bs-keyboard="false">
+      <div class="modal-lg modal-dialog modal-dialog-centered">
+        <div class="modal-content bg-dark text-white border-secondary">
+
+          <!-- Modal Header -->
+          <div class="modal-header border-secondary">
+            <h5 class="modal-title" id="musicInfoModalLabel">
+              <i class="bi bi-info-circle"></i> Heads up!
+            </h5>
+            <button type="button" class="btn text-white p-0 border-0 bg-transparent ms-auto" data-bs-dismiss="modal"
+              aria-label="Close" style="font-size: 1.5rem;">
+              <i class="bi bi-x"></i>
+            </button>
+          </div>
+
+          <!-- Modal Body -->
+          <div class="modal-body text-center">
+            <p class="mb-2">🎵 This portfolio has background music. Would you like to turn it on?</p>
+            <p class="small">
+              You can also turn it on or off anytime using the music button located at the top right corner of the
+              header.
+            </p>
+            <img src="assets/music/information.png" alt="Info Graphic" class="img-fluid mb-3"
+              style="max-height: 200px;">
+          </div>
+
+          <!-- Modal Footer -->
+          <div class="modal-footer border-secondary d-flex justify-content-between">
+            <button type="button" class="btn btn-outline-light" id="music-yes-btn" data-bs-dismiss="modal">
+              Yes, turn it on <i class="bi bi-volume-up ms-1"></i>
+            </button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+              No, thanks
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Home Section -->
+    <section id="home" class="home section dark-background">
+
+      <img src="assets/img/ralph-bg.jpg" alt="" data-aos="zoom-out" class="">
+
+      <div class="container" data-aos-once="false" data-aos="fade-up" data-aos-delay="100">
+        <small class="text-dark">My name is</small>
+        <h2 class="text-dark">Ralph Gervacio</h2>
+        <p class="text-dark"> And I'm a <span class="typed text-dark fw-bold"
+            data-typed-items="Java Developer, Drone Pilot, Photographer, PC Technician"></span><span
+            class="typed-cursor typed-cursor--blink" aria-hidden="true"></span></p>
+
+        <button id="downloadCV" class="mt-2 btn btn-dark">
+          Download CV
+        </button>
+
+      </div>
+
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos-once="false" data-aos="fade-left">
+        <h2>About</h2>
+        <p>I am a dedicated and versatile professional with a passion for both software development and aerial
+          technologies. With hands-on experience and a strong foundation in Java and drone operations, I bring a unique
+          blend of technical skill and creative problem-solving to every project I undertake.</p>
+      </div>
+
+      <div class="container" data-aos="fade-right" data-aos-once="false" data-aos-delay="100">
+
+        <div class="row gy-4 justify-content-center">
+          <div class="col-lg-4">
+            <img src="assets/img/my-profile-img.png" class="img-fluid" alt="Profile Image">
+          </div>
+          <div class="col-lg-8 content">
+            <h2>Ralph Roland D. Gervacio</h2>
+            <p class="fst-italic py-3">
+              I specialize in building robust, efficient backend systems and exploring the future of aerial imaging and
+              automation through drone technology.
+            </p>
+            <div class="row">
+              <div class="col-lg-6">
+                <ul>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>March 21, 2002</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>+63 968-283-0027</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>Bacoor City, Philippines</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-lg-6">
+                <ul>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span>23</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>Bachelor's Degree</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>ralphrolandg@gmail.com</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <p class="py-3">
+              I am committed to continuous growth and learning, always seeking opportunities to expand my expertise in
+              emerging technologies. Whether it's writing clean, scalable code or navigating complex aerial
+              environments, I approach each challenge with focus, creativity, and determination.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills section light-background">
+      <div class="container section-title" data-aos-once="false" data-aos="fade-left">
+        <h2>Skills</h2>
+        <p>A collection of my core technical skills and areas of expertise.</p>
+      </div>
+
+      <div class="container" data-aos-once="false" data-aos="fade-right" data-aos-delay="100">
+        <div class="skills-content skills-animation">
+
+          <div class="skill-item" data-skill="html">
+            <div class="skill-card">
+              <i class="ri-html5-fill icon-lg" style="color: #e34c26;"></i>
+              <h4>HTML</h4>
+            </div>
+          </div>
+
+          <div class="skill-item" data-skill="css">
+            <div class="skill-card">
+              <i class="ri-css3-fill icon-lg" style="color: #264de4;"></i>
+              <h4>CSS</h4>
+            </div>
+          </div>
+
+          <div class="skill-item" data-skill="jquery">
+            <div class="skill-card">
+              <i class="ri-code-s-slash-line icon-lg text-danger"></i>
+              <h4>jQuery</h4>
+            </div>
+          </div>
+
+          <div class="skill-item" data-skill="postgresql">
+            <div class="skill-card">
+              <i class="ri-database-2-fill icon-lg" style="color: #336791;"></i>
+              <h4>PostgreSQL</h4>
+            </div>
+          </div>
+
+          <div class="skill-item" data-skill="bootstrap">
+            <div class="skill-card">
+              <i class="ri-bootstrap-fill icon-lg" style="color: #7952B3;"></i>
+              <h4>Bootstrap 5</h4>
+            </div>
+          </div>
+
+          <div class="skill-item" data-skill="java">
+            <div class="skill-card">
+              <i class="ri-cup-fill icon-lg" style="color: #b07219;"></i>
+              <h4>Java</h4>
+            </div>
+          </div>
+
+          <div class="skill-item" data-skill="drone">
+            <div class="skill-card">
+              <i class="ri-gamepad-fill icon-lg text-warning"></i>
+              <h4>Drone Operation</h4>
+            </div>
+          </div>
+
+          <div class="skill-item" data-skill="hardware">
+            <div class="skill-card">
+              <i class="ri-computer-line icon-lg text-info"></i>
+              <h4>Computer Hardware</h4>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Resume Section -->
+    <section id="resume" class="resume section">
+
+      <div class="container section-title" data-aos-once="false" data-aos="fade-up">
+        <h2>Resume</h2>
+        <p>Overview of my professional experience and educational background.</p>
+      </div>
+
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-6" data-aos-once="false" data-aos="fade-up" data-aos-delay="100">
+            <h3 class="resume-title">Summary</h3>
+            <div class="resume-item pb-0">
+              <h4>Ralph Gervacio</h4>
+              <p><em>Experienced Computer Technician and Java Developer with a passion for technology and
+                  continuous learning.</em></p>
+              <ul>
+                <li>Bacoor City, Philippines</li>
+                <li>+63 968-283-0027</li>
+                <li>ralphrolandg@gmail.com</li>
+              </ul>
+            </div>
+
+            <h3 class="resume-title">Education</h3>
+            <div class="resume-item">
+              <h4>Bachelor of Science in Information Technology</h4>
+              <h5>2020 - 2024</h5>
+              <p>- Top 3 in I.T Capstone</p>
+              <p><b>STI College Bacoor</b></p>
+            </div>
+
+            <div class="resume-item">
+              <h4>TVL - Computer System Servicing NCII (CSS)</h4>
+              <h5>2018 - 2020</h5>
+              <p>- NCII Passer</p>
+              <p><em>Senior Highschool in Progressive</em></p>
+            </div>
+          </div>
+
+          <div class="col-lg-6" data-aos-once="false" data-aos="fade-up" data-aos-delay="200">
+            <h3 class="resume-title">Professional Experience</h3>
+            <div class="resume-item">
+              <h4>Java Developer (Trainee)</h4>
+              <h5>October 3, 2024 - December 2, 2024</h5>
+              <p><em>Ascent Solutions Philippines Inc.</em></p>
+              <ul>
+                <li>Started as a trainee to develop Java programming skills and assist in web development projects.</li>
+                <li>Learned how to create a simple CRUD and understand the Spring MVC</li>
+              </ul>
+            </div>
+
+            <div class="resume-item">
+              <h4>Java Developer (Probation)</h4>
+              <h5>December 3, 2024 - May 19, 2025</h5>
+              <p><em>Ascent Solutions Philippines Inc.</em></p>
+              <ul>
+                <li>Continued development from trainee to a probationary Java Developer role.</li>
+                <li>Learned and applied Spring Boot and Thymeleaf in real-world projects.</li>
+                <li>Worked with JDK 21 to build and maintain backend functionalities.</li>
+                <li>Learned how to use TortoiseSVN, a free and open-source windows client for the subversion (SVN)
+                  version control system.</li>
+                <li>Collaborated with team members to deliver features according to project requirements.</li>
+              </ul>
+            </div>
+
+            <div class="resume-item">
+              <h4>Computer Technician</h4>
+              <h5>2019 - Present</h5>
+              <p><em>Self-Employed / Various Clients</em></p>
+              <ul>
+                <li>Provided computer repair, troubleshooting, and maintenance services.</li>
+                <li>Gained hands-on experience in hardware and software problem-solving.</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio section light-background">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos-once="false" data-aos="fade-up">
+        <h2>Portfolio</h2>
+        <p>Showcasing my work in web development, aerial drone photography, and a range of computer services—delivering
+          creative, efficient, and tech-driven solutions.</p>
+      </div>
+
+      <div class="container">
+
+        <div class="isotope-layout" data-default-filter=".filter-web" data-layout="masonry" data-sort="original-order">
+
+          <ul class="portfolio-filters isotope-filters" data-aos-once="false" data-aos="fade-up" data-aos-delay="100">
+            <li data-filter=".filter-web" class="filter-active">Web Dev</li>
+            <li data-filter=".filter-drone">Drone</li>
+            <li data-filter=".filter-services">Computer Services</li>
+          </ul><!-- End Portfolio Filters -->
+
+          <div class="row gy-4 isotope-container" data-aos-once="false" data-aos="fade-up" data-aos-delay="200">
+
+            <!-- WEB DEVELOPMENT -->
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-web">
+              <div class="portfolio-content h-100">
+                <img src="assets/img/portfolio/Work in Progress.jpg" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                  <h4>Web Development</h4>
+                  <p>Work in Progress</p>
+                  <a href="assets/img/portfolio/Work in Progress.jpg" title="Work in Progress"
+                    data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i
+                      class="bi bi-zoom-in"></i></a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-web">
+              <div class="portfolio-content h-100">
+                <img src="assets/img/portfolio/Work in Progress.jpg" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                  <h4>Web Development</h4>
+                  <p>Work in Progress</p>
+                  <a href="assets/img/portfolio/Work in Progress.jpg" title="Work in Progress"
+                    data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i
+                      class="bi bi-zoom-in"></i></a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-web">
+              <div class="portfolio-content h-100">
+                <img src="assets/img/portfolio/Work in Progress.jpg" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                  <h4>Web Development</h4>
+                  <p>Work in Progress</p>
+                  <a href="assets/img/portfolio/Work in Progress.jpg" title="Work in Progress"
+                    data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i
+                      class="bi bi-zoom-in"></i></a>
+                </div>
+              </div>
+            </div>
+
+            <!-- DRONE -->
+            <!-- DRONE IMAGE 1 -->
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-drone">
+              <div class="portfolio-content h-100">
+                <img src="assets/img/portfolio/drone-1.png" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                  <h4>Drone Image</h4>
+                  <p>Pagudpud Beach during Holy Week 2025</p>
+                  <a href="assets/img/portfolio/drone-1.png"
+                    title="Shot on DJI Mini 3 - Pagudpud Beach during Holy Week 2025"
+                    data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i
+                      class="bi bi-zoom-in"></i></a>
+                </div>
+              </div>
+            </div>
+
+            <!-- DRONE IMAGE 2 -->
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-drone">
+              <div class="portfolio-content h-100">
+                <img src="assets/img/portfolio/drone-2.png" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                  <h4>Drone Image</h4>
+                  <p>Golden Hour in Tirona Highway</p>
+                  <a href="assets/img/portfolio/drone-2.png" title="Shot on DJI Mini 3 - Golden Hour in Tirona Highway"
+                    data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i
+                      class="bi bi-zoom-in"></i></a>
+                </div>
+              </div>
+            </div>
+
+            <!-- DRONE IMAGE 3 -->
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-drone">
+              <div class="portfolio-content h-100">
+                <img src="assets/img/portfolio/drone-3.png" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                  <h4>Drone Image</h4>
+                  <p>Bangui Windmill in Ilocos Norte</p>
+                  <a href="assets/img/portfolio/drone-3.png"
+                    title="Shot on DJI Mini 3 - Bangui Windmill in Ilocos Norte"
+                    data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i
+                      class="bi bi-zoom-in"></i></a>
+                </div>
+              </div>
+            </div>
+
+            <!-- DRONE VIDEO 1 -->
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-drone">
+              <div class="portfolio-content position-relative">
+                <img src="assets/img/portfolio/drone-vid-1.png" class="img-fluid video-thumbnail bg-light" alt="Golden Hour Thumbnail">
+                <div class="portfolio-info text-start">
+                  <h4 class="mb-2">Drone Video</h4>
+                  <p class="mb-3">Golden Hour in Tirona Highway</p>
+                  <a href="assets/videos/Golden Hour.mp4" class="glightbox preview-link text-white" data-type="video"
+                    data-gallery="portfolio-gallery-video" title="Shot on DJI Mini 3 - Golden Hour in Tirona Highway">
+                    <i class="bi bi-play-circle-fill fs-1"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- DRONE VIDEO 2 -->
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-drone">
+              <div class="portfolio-content position-relative">
+                <img src="assets/img/portfolio/drone-vid-2.png" class="img-fluid video-thumbnail bg-light" alt="Ilocos Norte Ride Thumbnail">
+                <div class="portfolio-info text-start">
+                  <h4 class="mb-2">Drone Video</h4>
+                  <p class="mb-3">Ilocos Norte Holy Week Ride</p>
+                  <a href="assets/videos/Ilocos Norte Ride.mp4" class="glightbox preview-link text-white"
+                    data-type="video" data-gallery="portfolio-gallery-video"
+                    title="Shot on DJI Mini 3 - Ilocos Norte Holy Week Ride">
+                    <i class="bi bi-play-circle-fill fs-1"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- DRONE VIDEO 3 -->
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-drone">
+              <div class="portfolio-content position-relative">
+                <img src="assets/img/portfolio/drone-vid-3.png" class="img-fluid video-thumbnail bg-light" alt="Imus Quick Shot Thumbnail">
+                <div class="portfolio-info text-start">
+                  <h4 class="mb-2">Drone Video</h4>
+                  <p class="mb-3">Imus, Malagasang Quick Shot</p>
+                  <a href="assets/videos/Quick Shot sa Imus.mp4" class="glightbox preview-link text-white"
+                    data-type="video" data-gallery="portfolio-gallery-video"
+                    title="Shot on DJI Mini 3 - Imus, Malagasang Quick Shot">
+                    <i class="bi bi-play-circle-fill fs-1"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- COMPUTER SERVICES -->
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-services">
+              <div class="portfolio-content h-100">
+                <img src="assets/img/portfolio/computer-services-1.jpg" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                  <h4>Computer Services</h4>
+                  <p>Laptop LCD replacement</p>
+                  <a href="assets/img/portfolio/computer-services-1.jpg" title="LCD Replacement"
+                    data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i
+                      class="bi bi-zoom-in"></i></a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-services">
+              <div class="portfolio-content h-100">
+                <img src="assets/img/portfolio/Work in Progress.jpg" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                  <h4>Computer Services</h4>
+                  <p>Work in Progress</p>
+                  <a href="assets/img/portfolio/Work in Progress.jpg" title="Work in Progress"
+                    data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i
+                      class="bi bi-zoom-in"></i></a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-services">
+              <div class="portfolio-content h-100">
+                <img src="assets/img/portfolio/Work in Progress.jpg" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                  <h4>Computer Services</h4>
+                  <p>Work in Progress</p>
+                  <a href="assets/img/portfolio/Work in Progress.jpg" title="Work in Progress"
+                    data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i
+                      class="bi bi-zoom-in"></i></a>
+                </div>
+              </div>
+            </div>
+
+          </div><!-- End Portfolio Container -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Portfolio Section -->
+
+    <!-- Services Section -->
+    <section id="services" class="services section">
+      <div class="container section-title" data-aos-once="false" data-aos="fade-up">
+        <h2>Services</h2>
+        <p>Combining my expertise in software engineering and drone technology, I offer a unique set of services to help
+          individuals and businesses enhance their digital and technical capabilities.</p>
+      </div>
+
+      <div class="container">
+        <div class="row gy-4">
+
+          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos-once="false" data-aos="fade-up"
+            data-aos-delay="100">
+            <div class="icon flex-shrink-0"><i class="bi bi-code-slash"></i></div>
+            <div>
+              <h4 class="title">Java Backend Development</h4>
+              <p class="description">Build scalable and maintainable server-side applications using modern Java.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos-once="false" data-aos="fade-up"
+            data-aos-delay="200">
+            <div class="icon flex-shrink-0"><i class="bi bi-hdd-network"></i></div>
+            <div>
+              <h4 class="title">Database Integration</h4>
+              <p class="description">Design and connect efficient PostgreSQL databases to support application data flow
+                and integrity.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos-once="false" data-aos="fade-up"
+            data-aos-delay="300">
+            <div class="icon flex-shrink-0"><i class="bi bi-tools"></i></div>
+            <div>
+              <h4 class="title">Computer Maintenance</h4>
+              <p class="description">Diagnose, repair, and upgrade hardware and software for optimal computer
+                performance.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos-once="false" data-aos="fade-up"
+            data-aos-delay="400">
+            <div class="icon flex-shrink-0"><i class="bi bi-controller"></i></div>
+            <div>
+              <h4 class="title">Drone Operations</h4>
+              <p class="description">Capture aerial footage and conduct flight operations for creative cinematic shots,
+                or
+                inspection needs.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos-once="false" data-aos="fade-up"
+            data-aos-delay="500">
+            <div class="icon flex-shrink-0"><i class="bi bi-laptop"></i></div>
+            <div>
+              <h4 class="title">Responsive Web Design</h4>
+              <p class="description">Develop clean, responsive front-end interfaces using HTML, CSS, Bootstrap 5, and
+                jQuery.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos-once="false" data-aos="fade-up"
+            data-aos-delay="600">
+            <div class="icon flex-shrink-0"><i class="bi bi-lightbulb"></i></div>
+            <div>
+              <h4 class="title">Capstone Consultation</h4>
+              <p class="description">Offer guidance on I.T. Capstone projects, from ideation to implementation, based on
+                top-ranking project experience.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section light-background py-5">
+      <div class="container section-title text-start" data-aos-once="false" data-aos="fade-up">
+        <h2>Contact</h2>
+        <p>If you have any questions or inquiries, feel free to reach out using the details below.</p>
+      </div>
+
+      <!-- Combined Contact Info + Map Card -->
+      <div class="container d-flex justify-content-center" data-aos-once="false" data-aos="fade-up"
+        data-aos-delay="100">
+        <div class="container my-5">
+          <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
+            <div class="row g-0">
+
+              <!-- Contact Info -->
+              <div class="col-md-6 p-5 contact contact-info-dark">
+                <h4 class="mb-4">Contact Information</h4>
+
+                <div class="info-item location d-flex align-items-start mb-4">
+                  <i class="bi bi-geo-alt"></i>
+                  <div class="ms-3">
+                    <h6 class="mb-1">My Location</h6>
+                    <p class="mb-0">San Nicolas 1, Bacoor City, Cavite, Philippines, 4102</p>
+                  </div>
+                </div>
+
+                <div class="info-item phone d-flex align-items-start mb-4">
+                  <i class="bi bi-telephone"></i>
+                  <div class="ms-3">
+                    <h6 class="mb-1">Phone</h6>
+                    <p class="mb-0">+63 968-283-0027</p>
+                  </div>
+                </div>
+
+                <div class="info-item email d-flex align-items-start">
+                  <i class="bi bi-envelope"></i>
+                  <div class="ms-3">
+                    <h6 class="mb-1">Email</h6>
+                    <p class="mb-0">ralphrolandg@gmail.com</p>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Google Map -->
+              <div class="col-md-6">
+                <div class="ratio ratio-4x3 h-100">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d810.4284376006526!2d120.9715329956046!3d14.437283554834625!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397d21a6d8b4de9%3A0x5371ce7bda668acb!2sSan%20Nicolas%20I%2C%20City%20of%20Bacoor%2C%20Cavite!5e1!3m2!1sen!2sph!4v1749218160199!5m2!1sen!2sph"
+                    style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                  </iframe>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer id="footer" class="footer position-relative">
+
+    <div class="container">
+      <div class="copyright text-center">
+        <p>
+          <strong class="px-1 sitename">RALPH ROLAND D. GERVACIO</strong>
+        </p>
+        <p>
+          All the information, credentials, and images used in this portfolio are
+          <strong>solely mine</strong> or properly sourced, and are currently active and valid — in accordance with
+          <strong>R.A. 10173</strong> (Data Privacy Act of 2012), Philippines.
+        </p>
+        <p>
+          Logos are property of their respective trademark holders and are used here under <strong>**fair use**</strong>
+          for
+          identification and descriptive purposes. No copyright infringement is intended.
+        </p>
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader">
+    <div class="typing-container">
+      RRDG
+    </div>
+  </div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/jquery/js/jquery-3.7.1.min.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/typed.js/typed.umd.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/swal2/js/sweetalert2@11.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
