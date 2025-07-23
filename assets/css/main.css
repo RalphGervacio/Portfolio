@@ -355,21 +355,345 @@ h6 {
 #preloader {
   position: fixed;
   inset: 0;
-  z-index: 999999;
-  background: var(--background-color);
+  background: #0d0d0d;
+  z-index: 9999;
   display: flex;
-  justify-content: center;
   align-items: center;
-  opacity: 1;
-  transition: opacity 1s ease-in-out;
-  pointer-events: all;
-  font-family: 'Georgia', serif;
+  justify-content: center;
+  overflow: hidden;
 }
 
-#preloader.fade-out {
-  opacity: 0;
+/* Animated Ambient Background */
+.ambient-bg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, #1a0000, #0a0a0a 70%);
+  animation: ambientPulse 6s ease-in-out infinite;
+  z-index: 0;
+}
+
+/* Container for everything */
+.loader-container {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  z-index: 1;
+}
+
+/* Disc */
+.neuro-disc {
+  width: 120px;
+  height: 120px;
+  background: #111;
+  border-radius: 50%;
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  animation: spin 3s linear infinite, pulse 2s ease-in-out infinite;
+  box-shadow:
+    inset -6px -6px 10px rgba(255, 0, 0, 0.1),
+    inset 6px 6px 10px rgba(0, 0, 0, 0.8),
+    0 0 25px rgba(255, 0, 0, 0.3);
+  border: 4px solid rgba(255, 0, 0, 0.2);
+}
+
+.disc-center {
+  width: 24px;
+  height: 24px;
+  background: #ff0000;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 8px rgba(255, 0, 0, 0.5);
+}
+
+/* Shine effect */
+.glass-flare {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), transparent 70%);
+  border-radius: 50%;
   pointer-events: none;
 }
+
+/* Orbit Ring */
+.orbit-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px dashed rgba(255, 0, 0, 0.2);
+  animation: spin 8s linear infinite reverse;
+}
+
+/* Floating particles */
+.floating-particles::before,
+.floating-particles::after {
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: rgba(255, 0, 0, 0.6);
+  border-radius: 50%;
+  box-shadow: 0 0 6px rgba(255, 0, 0, 0.6);
+}
+
+.floating-particles::before {
+  top: -10px;
+  left: 50%;
+  animation: float1 3s ease-in-out infinite;
+}
+
+.floating-particles::after {
+  bottom: -10px;
+  left: 40%;
+  animation: float2 4s ease-in-out infinite;
+}
+
+/* Animated RRDG Letters */
+.rrdg-text {
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Orbitron', sans-serif;
+  color: #ff0000;
+  display: flex;
+  gap: 6px;
+}
+
+.rrdg-text span {
+  font-size: 20px;
+  opacity: 0;
+  animation: fadeInLetter 1s forwards;
+}
+
+.rrdg-text span:nth-child(1) {
+  animation-delay: 0.4s;
+}
+
+.rrdg-text span:nth-child(2) {
+  animation-delay: 0.6s;
+}
+
+.rrdg-text span:nth-child(3) {
+  animation-delay: 0.8s;
+}
+
+.rrdg-text span:nth-child(4) {
+  animation-delay: 1s;
+}
+
+/* Fade out */
+.fade-out {
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+/* Keyframes */
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes float1 {
+
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.7;
+  }
+
+  50% {
+    transform: translateY(25px);
+    opacity: 1;
+  }
+}
+
+@keyframes float2 {
+
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.7;
+  }
+
+  50% {
+    transform: translateY(-25px);
+    opacity: 1;
+  }
+}
+
+@keyframes ambientPulse {
+
+  0%,
+  100% {
+    filter: brightness(1);
+  }
+
+  50% {
+    filter: brightness(1.1);
+  }
+}
+
+@keyframes fadeInLetter {
+  to {
+    opacity: 1;
+    transform: translateY(-5px);
+  }
+}
+
+/* TECH ARCS */
+.tech-arc {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 0, 0, 0.2);
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.2);
+}
+
+.arc1 {
+  width: 160px;
+  height: 160px;
+  top: 0;
+  left: 0;
+  animation: arcspin1 10s linear infinite;
+}
+
+.arc2 {
+  width: 140px;
+  height: 140px;
+  top: 10px;
+  left: 10px;
+  animation: arcspin2 8s linear infinite reverse;
+}
+
+@keyframes arcspin1 {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes arcspin2 {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+/* Circuit Dots */
+.circuit-dot {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: rgba(255, 0, 0, 0.6);
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(255, 0, 0, 0.8);
+  animation: blink 1.5s ease-in-out infinite alternate;
+}
+
+.dot1 {
+  top: 10px;
+  left: 140px;
+}
+
+.dot2 {
+  bottom: 10px;
+  right: 140px;
+  animation-delay: 0.5s;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0.2;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+/* === TECH LINES === */
+.tech-lines {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.tech-line {
+  position: absolute;
+  width: 2px;
+  height: 100px;
+  background: linear-gradient(to bottom, rgba(255, 0, 0, 0.3), rgba(255, 0, 0, 0));
+  animation: scanline 2s linear infinite;
+  opacity: 0.5;
+}
+
+.tech-line.tl-1 {
+  left: 20%;
+  animation-delay: 0s;
+}
+
+.tech-line.tl-2 {
+  left: 40%;
+  animation-delay: 0.5s;
+}
+
+.tech-line.tl-3 {
+  left: 60%;
+  animation-delay: 1s;
+}
+
+.tech-line.tl-4 {
+  left: 80%;
+  animation-delay: 1.5s;
+}
+
+/* Scanning line animation */
+@keyframes scanline {
+  0% {
+    top: -120px;
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 0.5;
+  }
+
+  50% {
+    opacity: 0.3;
+  }
+
+  100% {
+    top: 100%;
+    opacity: 0;
+  }
+}
+
+/*--------------------------------------------------------------
 
 /* Typing Container */
 .typing-container {

@@ -1,7 +1,10 @@
 $(document).ready(function () {
   'use strict';
 
-  $('#musicInfoModal').modal('show');
+  if (!sessionStorage.getItem('musicModalShown')) {
+    $('#musicInfoModal').modal('show');
+    sessionStorage.setItem('musicModalShown', 'true');
+  }
   const preloader = $('#preloader');
   const headerToggleBtn = $('.header-toggle');
   const music = $('#bg-music')[0];
@@ -39,13 +42,9 @@ $(document).ready(function () {
   });
 
   //===== Preloader =====//
-  if (preloader.length) {
+  if (preloader.length && !sessionStorage.getItem('preloaderShown')) {
     $(window).on('load', function () {
-      $('.typing-container').on('animationend', function (e) {
-        if (e.originalEvent.animationName === 'typing') {
-          $(this).addClass('done');
-        }
-      });
+      sessionStorage.setItem('preloaderShown', 'true'); // Mark as shown
 
       setTimeout(function () {
         preloader.addClass('fade-out');
@@ -53,20 +52,21 @@ $(document).ready(function () {
         setTimeout(function () {
           preloader.remove();
 
-          // Show modal only once
           if (!sessionStorage.getItem('musicModalShown')) {
             sessionStorage.setItem('musicModalShown', 'true');
           }
 
-          // Trigger music toggle if user clicks Yes
           $('#music-yes-btn').on('click', function () {
             $('#toggle-music').trigger('click');
           });
 
         }, 1000);
-      }, 2500);
+      }, 2000);
     });
+  } else {
+    preloader.remove();
   }
+
 
   //===== Initialize AOS (Animate On Scroll) =====//
   function aosInit() {

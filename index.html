@@ -10,6 +10,7 @@
   <link href="assets/img/my-profile-img.png" rel="icon">
 
   <!-- Vendor CSS Files -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
@@ -47,8 +48,9 @@
       </nav>
 
       <div class="header-social-links">
-        <a href="https://x.com/KiryuiAkumaCNFT" class="twitter" target="_blank" rel="noopener noreferrer">
-          <i class="bi bi-twitter-x"></i>
+        <a href="https://www.linkedin.com/in/ralph-roland-gervacio-274935369/" class="linkedin" target="_blank"
+          rel="noopener noreferrer">
+          <i class="bi bi-linkedin"></i>
         </a>
 
         <a href="https://www.facebook.com/ralphthegreat2002/" class="facebook" target="_blank"
@@ -80,36 +82,37 @@
     <div class="modal fade" id="musicInfoModal" tabindex="-1" aria-labelledby="musicInfoModalLabel" aria-hidden="true"
       data-bs-backdrop="static" data-bs-keyboard="false">
       <div class="modal-lg modal-dialog modal-dialog-centered">
-        <div class="modal-content bg-dark text-white border-secondary">
+        <div class="modal-content text-white border-0 shadow-lg"
+          style="background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(20px); border-radius: 20px; box-shadow: 8px 8px 15px rgba(0,0,0,0.6), -6px -6px 12px rgba(255, 0, 0, 0.2);">
 
           <!-- Modal Header -->
-          <div class="modal-header border-secondary">
+          <div class="modal-header border-0">
             <h5 class="modal-title" id="musicInfoModalLabel">
-              <i class="bi bi-info-circle"></i> Heads up!
+              <i class="bi bi-info-circle text-danger me-2"></i> <span class="fw-bold">Heads up!</span>
             </h5>
             <button type="button" class="btn text-white p-0 border-0 bg-transparent ms-auto" data-bs-dismiss="modal"
               aria-label="Close" style="font-size: 1.5rem;">
-              <i class="bi bi-x"></i>
+              <i class="bi bi-x-lg"></i>
             </button>
           </div>
 
           <!-- Modal Body -->
-          <div class="modal-body text-center">
-            <p class="mb-2">🎵 This portfolio has background music. Would you like to turn it on?</p>
-            <p class="small">
-              You can also turn it on or off anytime using the music button located at the top right corner of the
-              header.
+          <div class="modal-body text-center px-4">
+            <p class="mb-2 fs-5">🎵 This portfolio has background music. Would you like to turn it on?</p>
+            <p class="small text-light">
+              You can also toggle music using the player icon at the top right corner.
             </p>
             <img src="assets/music/information.png" alt="Info Graphic" class="img-fluid mb-3"
-              style="max-height: 200px;">
+              style="border-radius: 10px; max-height: 200px; filter: drop-shadow(0 0 8px rgba(255,0,0,0.5));">
           </div>
 
           <!-- Modal Footer -->
-          <div class="modal-footer border-secondary d-flex justify-content-between">
-            <button type="button" class="btn btn-outline-light" id="music-yes-btn" data-bs-dismiss="modal">
+          <div class="modal-footer border-0 d-flex justify-content-between px-4 pb-4">
+            <button type="button" class="btn btn-outline-danger rounded-pill shadow-sm px-4" id="music-yes-btn"
+              data-bs-dismiss="modal">
               Yes, turn it on <i class="bi bi-volume-up ms-1"></i>
             </button>
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+            <button type="button" class="btn btn-dark rounded-pill shadow-sm px-4" data-bs-dismiss="modal">
               No, thanks
             </button>
           </div>
@@ -374,7 +377,7 @@
                 <!-- Info Icon Button -->
                 <button
                   class="btn btn-dark btn-sm rounded-circle position-absolute top-0 end-0 m-2 d-flex align-items-center justify-content-center text-white"
-                  onclick="loadAcadalyzeModal()" style="width: 35px; height: 35px; z-index: 10;">
+                  onclick="loadProjectModal('acadalyze')" style="width: 35px; height: 35px; z-index: 10;">
                   <i class="bi bi-info-circle"></i>
                 </button>
 
@@ -405,13 +408,28 @@
 
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-web">
               <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/Work in Progress.jpg" class="img-fluid" alt="">
+                <!-- Info Icon Button -->
+                <button
+                  class="btn btn-dark btn-sm rounded-circle position-absolute top-0 end-0 m-2 d-flex align-items-center justify-content-center text-white"
+                  onclick="loadProjectModal('tubeline')" style="width: 35px; height: 35px; z-index: 10;">
+                  <i class="bi bi-info-circle"></i>
+                </button>
+
+                <img src="assets/img/portfolio/webdev-2.png" class="img-fluid" alt="">
                 <div class="portfolio-info">
                   <h4>Web Development</h4>
-                  <p>Work in Progress</p>
-                  <a href="assets/img/portfolio/Work in Progress.jpg" title="Work in Progress"
-                    data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i
-                      class="bi bi-zoom-in"></i></a>
+                  <p>TubeLine</p>
+                  <a href="assets/img/portfolio/webdev-2.png" data-title="TubeLine - Landing Page"
+                    data-gallery="portfolio-gallery-app" class="glightbox preview-link">
+                    <i class="bi bi-zoom-in"></i>
+                  </a>
+                  <!-- Tech Stack Icons -->
+                  <div class="tech-icons d-flex gap-2 mb-3">
+                    <img class="tech-icon" src="assets/img/skills/html5.svg" alt="HTML" title="HTML">
+                    <img class="tech-icon" src="assets/img/skills/jquery.svg" alt="jQuery" title="jQuery">
+                    <img class="tech-icon" src="assets/img/skills/bootstrap5.svg" alt="Bootstrap 5" title="Bootstrap 5">
+                  </div>
+
                 </div>
               </div>
             </div>
@@ -747,8 +765,34 @@
 
   <!-- Preloader -->
   <div id="preloader">
-    <div class="typing-container">
-      RRDG
+    <div class="ambient-bg"></div>
+
+    <!-- Technology Lines -->
+    <div class="tech-lines">
+      <div class="tech-line tl-1"></div>
+      <div class="tech-line tl-2"></div>
+      <div class="tech-line tl-3"></div>
+      <div class="tech-line tl-4"></div>
+    </div>
+
+    <div class="loader-container">
+      <div class="floating-particles"></div>
+      <div class="orbit-ring"></div>
+
+      <div class="tech-arc arc1"></div>
+      <div class="tech-arc arc2"></div>
+
+      <div class="circuit-dot dot1"></div>
+      <div class="circuit-dot dot2"></div>
+
+      <div class="neuro-disc">
+        <div class="disc-center"></div>
+        <div class="glass-flare"></div>
+      </div>
+
+      <div class="rrdg-text">
+        <span>R</span><span>R</span><span>D</span><span>G</span>
+      </div>
     </div>
   </div>
 
@@ -767,6 +811,7 @@
 
   <!-- Modals JS Files -->
   <script src="assets/js/acadalyzeModal.js"></script>
+  <script src="assets/js/tubeLineModal.js"></script>
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
