@@ -3,7 +3,6 @@ $(document).ready(function () {
 
   $('#musicInfoModal').modal('show');
   const preloader = $('#preloader');
-  const scrollTop = $('.scroll-top');
   const headerToggleBtn = $('.header-toggle');
   const music = $('#bg-music')[0];
   music.volume = 0.05;
@@ -69,26 +68,6 @@ $(document).ready(function () {
     });
   }
 
-  //===== Show/hide scroll-to-top button =====//
-  function toggleScrollTop() {
-    if (scrollTop.length) {
-      if ($(window).scrollTop() > 100) {
-        scrollTop.addClass('active');
-      } else {
-        scrollTop.removeClass('active');
-      }
-    }
-  }
-
-  //===== Scroll to top on button click =====//
-  scrollTop.on('click', function (e) {
-    e.preventDefault();
-    $('html, body').animate({ scrollTop: 0 }, 'slow');
-  });
-
-  $(window).on('load', toggleScrollTop);
-  $(document).on('scroll', toggleScrollTop);
-
   //===== Initialize AOS (Animate On Scroll) =====//
   function aosInit() {
     AOS.init({
@@ -99,7 +78,7 @@ $(document).ready(function () {
     });
   }
 
-  //===== Toggle mobile navigation menu =====//
+  // ===== Toggle Mobile Navigation Menu ===== //
   function mobileNavToggle() {
     const isActive = $('body').hasClass('mobile-nav-active');
 
@@ -107,8 +86,8 @@ $(document).ready(function () {
       $('body').addClass('mobile-nav-active');
       $('.mobile-nav-toggle').removeClass('bi-folder2-open').addClass('bi-x-circle text-danger');
 
-      // Animate nav links with AOS when opened
-      $('#navmenu a').each(function (index) {
+      // Animate mobile nav links with AOS
+      $('#mobile-navmenu a').each(function (index) {
         const $this = $(this);
         setTimeout(() => {
           $this.addClass('aos-animate');
@@ -117,35 +96,98 @@ $(document).ready(function () {
     } else {
       $('body').removeClass('mobile-nav-active');
       $('.mobile-nav-toggle').removeClass('bi-x-circle text-danger').addClass('bi-folder2-open');
-      $('#navmenu a').removeClass('aos-animate');
+      $('#mobile-navmenu a').removeClass('aos-animate');
     }
   }
 
-  //===== Mobile nav toggle click event =====//
-  $('.mobile-nav-toggle').on('click', mobileNavToggle);
-
-  //===== Close mobile nav when a menu item is clicked =====//
-  $('#navmenu a').on('click', function () {
-    if ($('body').hasClass('mobile-nav-active')) {
-      mobileNavToggle();
-    }
+  // ===== Highlight active menu item on both desktop and mobile ===== //
+  $('#navmenu a, #mobile-navmenu a').on('click', function () {
+    $('#navmenu a, #mobile-navmenu a').removeClass('active');
+    $(this).addClass('active');
   });
 
   $(window).on('load', aosInit);
 
-  //===== Typing effect using Typed.js =====//
-  const selectTyped = $('.typed');
-  if (selectTyped.length) {
-    let typed_strings = selectTyped.data('typed-items');
-    typed_strings = typed_strings.split(',');
-    new Typed('.typed', {
-      strings: typed_strings,
-      loop: true,
-      typeSpeed: 20,
-      backSpeed: 20,
-      backDelay: 500
+  //===== Typing effect =====//
+  const items = ["Java Developer", "Drone Pilot", "Photographer", "PC Technician"];
+  const chars = "!@#$%^&*()_+=-<>?/|{}[]0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+  function animateHackerText($el, word, onComplete) {
+    const letters = word.split('');
+    let display = new Array(letters.length).fill('');
+    let lockIndex = 0;
+
+    const interval = setInterval(() => {
+      for (let i = 0; i < letters.length; i++) {
+        if (i < lockIndex) {
+          display[i] = letters[i];
+        } else {
+          display[i] = chars.charAt(Math.floor(Math.random() * chars.length));
+        }
+      }
+
+      $el.text(display.join(''));
+
+      lockIndex++;
+      if (lockIndex > letters.length) {
+        clearInterval(interval);
+        setTimeout(onComplete, 1500);
+      }
+    }, 70); // speed per letter lock
+  }
+
+  function cycleWords(index = 0) {
+    const $el = $('#hackerTyped');
+    const word = items[index];
+
+    animateHackerText($el, word, () => {
+      cycleWords((index + 1) % items.length);
     });
   }
+
+  cycleWords();
+
+  //===== Hacker Text Effect for AOS-triggered spans =====//
+  const hackerChars = "!@#$%^&*()_+=-<>?/|{}[]0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+  function animateSpanHacker($el, text, done) {
+    const letters = text.split('');
+    let display = new Array(letters.length).fill('');
+    let lockIndex = 0;
+
+    const interval = setInterval(() => {
+      for (let i = 0; i < letters.length; i++) {
+        if (i < lockIndex) {
+          display[i] = letters[i];
+        } else {
+          display[i] = hackerChars.charAt(Math.floor(Math.random() * hackerChars.length));
+        }
+      }
+      $el.text(display.join(''));
+
+      lockIndex++;
+      if (lockIndex > letters.length) {
+        clearInterval(interval);
+        if (done) setTimeout(done, 300);
+      }
+    }, 40);
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const $el = $(entry.target);
+        const original = $el.attr('data-original') || $el.text();
+        $el.attr('data-original', original);
+        $el.text('');
+        animateSpanHacker($el, original);
+      }
+    });
+  }, { threshold: 0.6 });
+
+  $('.hacker-span').each(function () {
+    observer.observe(this);
+  });
 
   //===== Initialize PureCounter (counter animation) =====//
   new PureCounter();
@@ -233,42 +275,41 @@ $(document).ready(function () {
     }
   });
 
-  const navmenulinks = $('.navmenu a');
+  //===== Navmenu Scrollspy Highlight on Scroll =====//
+  const navmenulinks = $('#navmenu a, #mobile-navmenu a');
 
-  //===== Highlight nav menu links based on scroll position =====//
   function navmenuScrollspy() {
-    const position = $(window).scrollTop() + 200;
+    const scrollTop = $(window).scrollTop() + 200;
+
+    // Remove active class from both li and a
+    $('#navmenu li, #mobile-navmenu li').removeClass('active');
+    $('#mobile-navmenu a').removeClass('active');
 
     navmenulinks.each(function () {
       const link = $(this);
       const target = $(link.attr('href'));
 
       if (target.length) {
-        if (
-          position >= target.offset().top &&
-          position <= target.offset().top + target.outerHeight()
-        ) {
-          $('.navmenu a.active').removeClass('active');
-          link.addClass('active');
-        } else {
-          link.removeClass('active');
+        const top = target.offset().top;
+        const bottom = top + target.outerHeight();
+
+        if (scrollTop >= top && scrollTop < bottom) {
+          // Highlight desktop nav (li)
+          $('#navmenu a[href="' + link.attr('href') + '"]').closest('li').addClass('active');
+
+          // Highlight mobile nav (a)
+          $('#mobile-navmenu a[href="' + link.attr('href') + '"]').addClass('active');
         }
       }
     });
   }
 
-  //===== Close header menu if clicked outside =====//
-  $(document).on('click', function (e) {
-    if (
-      !$(e.target).closest('#header, .header-toggle').length &&
-      $('#header').hasClass('header-show')
-    ) {
-      headerToggle();
-    }
+  // Run scrollspy on scroll/resize/load
+  $(window).on('scroll resize', navmenuScrollspy);
+  $(window).on('load', function () {
+    navmenuScrollspy();
+    setTimeout(navmenuScrollspy, 1000); // fallback after layout shifts
   });
-
-  $(window).on('load', navmenuScrollspy);
-  $(document).on('scroll', navmenuScrollspy);
 
   //===== Reinitialize AOS for animations =====//
   AOS.init({
@@ -278,7 +319,7 @@ $(document).ready(function () {
   //===== SWAL ALERT FOR CV =====//
   $('#downloadCV').on('click', function () {
     Swal.fire({
-      title: 'Are You Sure?',
+      title: '<span class="hacker-span" id="swalHackerTitle"></span>',
       text: "Do you want to download the CV now?",
       icon: 'question',
       showCancelButton: true,
@@ -286,8 +327,9 @@ $(document).ready(function () {
       cancelButtonText: 'Cancel',
       allowOutsideClick: false,
       customClass: {
-        confirmButton: 'btn btn-dark mx-2',
-        cancelButton: 'btn btn-light'
+        popup: 'swal-dark-theme',
+        confirmButton: 'btn btn-success mx-2',
+        cancelButton: 'btn btn-danger'
       },
       buttonsStyling: false,
       showClass: {
@@ -295,6 +337,9 @@ $(document).ready(function () {
       },
       hideClass: {
         popup: 'animate__animated animate__zoomOut'
+      },
+      didOpen: () => {
+        animateHackerText($('#swalHackerTitle'), 'Are You Sure?', () => { });
       }
     }).then((result) => {
       if (result.isConfirmed) {
@@ -309,9 +354,7 @@ $(document).ready(function () {
           <p style="margin-top: 10px;">Please wait while the CV is being downloaded.</p>
         `,
           showConfirmButton: false,
-          allowOutsideClick: false,
-          didOpen: () => {
-          }
+          allowOutsideClick: false
         });
 
         const a = document.createElement('a');
@@ -324,11 +367,12 @@ $(document).ready(function () {
         setTimeout(() => {
           Swal.fire({
             icon: 'success',
-            title: 'Thank You!',
+            title: '<span class="hacker-span" id="swalSuccessTitle"></span>',
             text: 'Thank you for downloading my CV.',
             confirmButtonText: 'Close',
             customClass: {
-              confirmButton: 'btn btn-dark'
+              popup: 'swal-dark-theme',
+              confirmButton: 'btn btn-success'
             },
             buttonsStyling: false,
             showClass: {
@@ -336,6 +380,9 @@ $(document).ready(function () {
             },
             hideClass: {
               popup: 'animate__animated animate__fadeOutUp'
+            },
+            didOpen: () => {
+              animateHackerText($('#swalSuccessTitle'), 'Thank You!', () => { });
             }
           });
         }, 1500);

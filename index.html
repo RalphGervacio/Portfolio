@@ -31,12 +31,12 @@
     <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
 
       <a href="#" class="logo d-flex align-items-center me-auto me-xl-0">
-        <h1 class="sitename fw-bold text-light">RRDG.</h1>
+        <img src="assets/img/logo.png" alt="RG Logo" data-aos="zoom-out" class="img-fluid" style="height: 60px;">
       </a>
 
-      <nav id="navmenu" class="navmenu">
+      <nav id="navmenu" class="navmenu d-none d-xl-flex">
         <ul>
-          <li><a href="#home" class="active"><i class="bi bi-house navicon"></i>&nbsp;Home</a></li>
+          <li class="active"><a href="#home"><i class="bi bi-house navicon"></i>&nbsp;Home</a></li>
           <li><a href="#about"><i class="bi bi-question navicon"></i>&nbsp;About</a></li>
           <li><a href="#skills"><i class="bi bi-person navicon"></i>&nbsp;Skills</a></li>
           <li><a href="#resume"><i class="bi bi-file-earmark-text navicon"></i>&nbsp;Resume</a></li>
@@ -44,13 +44,22 @@
           <li><a href="#services"><i class="bi bi-hdd-stack navicon"></i>&nbsp;Services</a></li>
           <li><a href="#contact"><i class="bi bi-envelope navicon"></i>&nbsp;Contact</a></li>
         </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-folder2-open"></i>
       </nav>
 
       <div class="header-social-links">
-        <a href="https://x.com/KiryuiAkumaCNFT" class="twitter"><i class="bi bi-twitter-x"></i></a>
-        <a href="https://www.facebook.com/ralphthegreat2002/" class="facebook"><i class="bi bi-facebook"></i></a>
-        <a href="https://www.instagram.com/rap_ruleland.dev/?hl=en" class="instagram"><i class="bi bi-instagram"></i></a>
+        <a href="https://x.com/KiryuiAkumaCNFT" class="twitter" target="_blank" rel="noopener noreferrer">
+          <i class="bi bi-twitter-x"></i>
+        </a>
+
+        <a href="https://www.facebook.com/ralphthegreat2002/" class="facebook" target="_blank"
+          rel="noopener noreferrer">
+          <i class="bi bi-facebook"></i>
+        </a>
+
+        <a href="https://www.instagram.com/rap_ruleland.dev/?hl=en" class="instagram" target="_blank"
+          rel="noopener noreferrer">
+          <i class="bi bi-instagram"></i>
+        </a>
 
         <!-- Background Music -->
         <audio id="bg-music" loop preload="none">
@@ -110,23 +119,22 @@
     </div>
 
     <!-- Home Section -->
-    <section id="home" class="home section dark-background">
+    <section id="home" class="home section dark-background position-relative overflow-hidden">
+      <!-- 🎥 Background Video -->
+      <video src="assets/videos/home-bg.mp4" autoplay muted loop playsinline
+        class="position-absolute top-0 start-0 w-100 h-100 object-fit-cover" style="z-index: 0;"></video>
 
-      <img src="assets/img/ralph-bg.jpg" alt="" data-aos="zoom-out" class="">
-
-      <div class="container" data-aos-once="false" data-aos="fade-up" data-aos-delay="100">
-        <small class="text-dark">My name is</small>
-        <h2 class="text-dark">Ralph Gervacio</h2>
-        <p class="text-dark"> And I'm a <span class="typed text-dark fw-bold"
-            data-typed-items="Java Developer, Drone Pilot, Photographer, PC Technician"></span><span
-            class="typed-cursor typed-cursor--blink" aria-hidden="true"></span></p>
-
-        <button id="downloadCV" class="mt-2 btn btn-dark">
-          Download CV
-        </button>
-
+      <!-- 💠 Foreground Container with Glass & Neuromorphism -->
+      <div class="container custom-glass position-relative p-4 rounded-4 shadow-lg" data-aos-once="false"
+        data-aos="fade-up" data-aos-delay="100">
+        <small class="text-white-50">My name is</small>
+        <h2 class="text-white">Ralph Gervacio</h2>
+        <p class="text-white mb-3">
+          And I'm a
+          <span id="hackerTyped" class="text-white fw-bold"></span>
+        </p>
+        <button id="downloadCV" class="neumorphic-btn hacker-span">Download CV</button>
       </div>
-
     </section>
 
     <!-- About Section -->
@@ -134,42 +142,46 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos-once="false" data-aos="fade-left">
-        <h2>About</h2>
-        <p>I am a dedicated and versatile professional with a passion for both software development and aerial
+        <h2 class="hacker-span">About</h2>
+        <p>
+          I am a dedicated and versatile professional with a passion for both software development and aerial
           technologies. With hands-on experience and a strong foundation in Java and drone operations, I bring a unique
-          blend of technical skill and creative problem-solving to every project I undertake.</p>
+          blend of technical skill and creative problem-solving to every project I undertake.
+        </p>
       </div>
 
       <div class="container" data-aos="fade-right" data-aos-once="false" data-aos-delay="100">
-
-        <div class="row gy-4 justify-content-center">
-          <div class="col-lg-4">
-            <img src="assets/img/my-profile-img.png" class="img-fluid" alt="Profile Image">
-          </div>
-          <div class="col-lg-8 content">
+        <div class="row justify-content-center">
+          <div class="col-lg-10 content">
             <h2>Ralph Roland D. Gervacio</h2>
             <p class="fst-italic py-3">
               I specialize in building robust, efficient backend systems and exploring the future of aerial imaging and
               automation through drone technology.
             </p>
+
             <div class="row">
               <div class="col-lg-6">
                 <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>March 21, 2002</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>+63 968-283-0027</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>Bacoor City, Philippines</span>
-                  </li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span class="hacker-span">March 21,
+                      2002</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span class="hacker-span">+63
+                      968-283-0027</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span class="hacker-span">Bacoor City,
+                      Philippines</span></li>
                 </ul>
               </div>
               <div class="col-lg-6">
                 <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span>23</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>Bachelor's Degree</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>ralphrolandg@gmail.com</span>
-                  </li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span class="hacker-span">23 Yrs.
+                      Old</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span class="hacker-span">Bachelor's
+                      Degree</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span
+                      class="hacker-span">ralphrolandg@gmail.com</span></li>
                 </ul>
               </div>
             </div>
+
             <p class="py-3">
               I am committed to continuous growth and learning, always seeking opportunities to expand my expertise in
               emerging technologies. Whether it's writing clean, scalable code or navigating complex aerial
@@ -177,7 +189,6 @@
             </p>
           </div>
         </div>
-
       </div>
 
     </section>
@@ -185,7 +196,7 @@
     <!-- Skills Section -->
     <section id="skills" class="skills section light-background">
       <div class="container section-title" data-aos-once="false" data-aos="fade-left">
-        <h2>Skills</h2>
+        <h2 class="hacker-span">Skills</h2>
         <p>A collection of my core technical skills and areas of expertise.</p>
       </div>
 
@@ -195,56 +206,56 @@
           <div class="skill-item" data-skill="html">
             <div class="skill-card">
               <i class="ri-html5-fill icon-lg" style="color: #e34c26;"></i>
-              <h4>HTML</h4>
+              <h4 class="hacker-span">HTML</h4>
             </div>
           </div>
 
           <div class="skill-item" data-skill="css">
             <div class="skill-card">
               <i class="ri-css3-fill icon-lg" style="color: #264de4;"></i>
-              <h4>CSS</h4>
+              <h4 class="hacker-span">CSS</h4>
             </div>
           </div>
 
           <div class="skill-item" data-skill="jquery">
             <div class="skill-card">
               <i class="ri-code-s-slash-line icon-lg text-danger"></i>
-              <h4>jQuery</h4>
+              <h4 class="hacker-span">jQuery</h4>
             </div>
           </div>
 
           <div class="skill-item" data-skill="postgresql">
             <div class="skill-card">
               <i class="ri-database-2-fill icon-lg" style="color: #336791;"></i>
-              <h4>PostgreSQL</h4>
+              <h4 class="hacker-span">PostgreSQL</h4>
             </div>
           </div>
 
           <div class="skill-item" data-skill="bootstrap">
             <div class="skill-card">
               <i class="ri-bootstrap-fill icon-lg" style="color: #7952B3;"></i>
-              <h4>Bootstrap 5</h4>
+              <h4 class="hacker-span">Bootstrap 5</h4>
             </div>
           </div>
 
           <div class="skill-item" data-skill="java">
             <div class="skill-card">
               <i class="ri-cup-fill icon-lg" style="color: #b07219;"></i>
-              <h4>Java</h4>
+              <h4 class="hacker-span">Java</h4>
             </div>
           </div>
 
           <div class="skill-item" data-skill="drone">
             <div class="skill-card">
               <i class="ri-gamepad-fill icon-lg text-warning"></i>
-              <h4>Drone Operation</h4>
+              <h4 class="hacker-span">Drone Operation</h4>
             </div>
           </div>
 
           <div class="skill-item" data-skill="hardware">
             <div class="skill-card">
               <i class="ri-computer-line icon-lg text-info"></i>
-              <h4>Computer Hardware</h4>
+              <h4 class="hacker-span">Computer Hardware</h4>
             </div>
           </div>
 
@@ -256,7 +267,7 @@
     <section id="resume" class="resume section">
 
       <div class="container section-title" data-aos-once="false" data-aos="fade-up">
-        <h2>Resume</h2>
+        <h2 class="hacker-span">Resume</h2>
         <p>Overview of my professional experience and educational background.</p>
       </div>
 
@@ -264,7 +275,7 @@
         <div class="row">
 
           <div class="col-lg-6" data-aos-once="false" data-aos="fade-up" data-aos-delay="100">
-            <h3 class="resume-title">Summary</h3>
+            <h3 class="resume-title hacker-span">Summary</h3>
             <div class="resume-item pb-0">
               <h4>Ralph Gervacio</h4>
               <p><em>Experienced Computer Technician and Java Developer with a passion for technology and
@@ -276,7 +287,7 @@
               </ul>
             </div>
 
-            <h3 class="resume-title">Education</h3>
+            <h3 class="resume-title hacker-span">Education</h3>
             <div class="resume-item">
               <h4>Bachelor of Science in Information Technology</h4>
               <h5>2020 - 2024</h5>
@@ -293,7 +304,7 @@
           </div>
 
           <div class="col-lg-6" data-aos-once="false" data-aos="fade-up" data-aos-delay="200">
-            <h3 class="resume-title">Professional Experience</h3>
+            <h3 class="resume-title hacker-span">Professional Experience</h3>
             <div class="resume-item">
               <h4>Java Developer (Trainee)</h4>
               <h5>October 3, 2024 - December 2, 2024</h5>
@@ -340,7 +351,7 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos-once="false" data-aos="fade-up">
-        <h2>Portfolio</h2>
+        <h2 class="hacker-span">Portfolio</h2>
         <p>Showcasing my work in web development, aerial drone photography, and a range of computer services—delivering
           creative, efficient, and tech-driven solutions.</p>
       </div>
@@ -350,9 +361,9 @@
         <div class="isotope-layout" data-default-filter=".filter-web" data-layout="masonry" data-sort="original-order">
 
           <ul class="portfolio-filters isotope-filters" data-aos-once="false" data-aos="fade-up" data-aos-delay="100">
-            <li data-filter=".filter-web" class="filter-active">Web Dev</li>
-            <li data-filter=".filter-drone">Drone</li>
-            <li data-filter=".filter-services">Computer Services</li>
+            <li data-filter=".filter-web" class="filter-active hacker-span">Web Dev</li>
+            <li data-filter=".filter-drone" class="hacker-span">Drone</li>
+            <li data-filter=".filter-services" class="hacker-span">Computer Services</li>
           </ul><!-- End Portfolio Filters -->
 
           <div class="row gy-4 isotope-container" data-aos-once="false" data-aos="fade-up" data-aos-delay="200">
@@ -360,13 +371,34 @@
             <!-- WEB DEVELOPMENT -->
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-web">
               <div class="portfolio-content h-100">
-                <img src="assets/img/portfolio/Work in Progress.jpg" class="img-fluid" alt="">
+                <!-- Info Icon Button -->
+                <button
+                  class="btn btn-dark btn-sm rounded-circle position-absolute top-0 end-0 m-2 d-flex align-items-center justify-content-center text-white"
+                  onclick="loadAcadalyzeModal()" style="width: 35px; height: 35px; z-index: 10;">
+                  <i class="bi bi-info-circle"></i>
+                </button>
+
+                <img src="assets/img/portfolio/webdev-1.png" class="img-fluid" alt="">
                 <div class="portfolio-info">
                   <h4>Web Development</h4>
-                  <p>Work in Progress</p>
-                  <a href="assets/img/portfolio/Work in Progress.jpg" title="Work in Progress"
-                    data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i
-                      class="bi bi-zoom-in"></i></a>
+                  <p>Acadalyze</p>
+                  <a href="assets/img/portfolio/webdev-1.png" data-title="Acadalyze - eLMS WebApp"
+                    data-gallery="portfolio-gallery-app" class="glightbox preview-link">
+                    <i class="bi bi-zoom-in"></i>
+                  </a>
+                  <!-- Tech Stack Icons -->
+                  <div class="tech-icons d-flex gap-2 mb-2">
+                    <img class="tech-icon" src="assets/img/skills/springboot.svg" alt="Spring Boot" title="Spring Boot">
+                    <img class="tech-icon" src="assets/img/skills/thymeleaf.svg" alt="Thymeleaf" title="Thymeleaf">
+                    <img class="tech-icon" src="assets/img/skills/websocket.svg" alt="WebSocket" title="WebSocket">
+                    <img class="tech-icon" src="assets/img/skills/postgresql.svg" alt="PostgreSQL" title="PostgreSQL">
+                  </div>
+                  <div class="tech-icons d-flex gap-2 mb-3">
+                    <img class="tech-icon" src="assets/img/skills/html5.svg" alt="HTML" title="HTML">
+                    <img class="tech-icon" src="assets/img/skills/jquery.svg" alt="jQuery" title="jQuery">
+                    <img class="tech-icon" src="assets/img/skills/bootstrap5.svg" alt="Bootstrap 5" title="Bootstrap 5">
+                    <img class="tech-icon" src="assets/img/skills/java-no-name.svg" alt="Java" title="Java">
+                  </div>
                 </div>
               </div>
             </div>
@@ -445,7 +477,8 @@
             <!-- DRONE VIDEO 1 -->
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-drone">
               <div class="portfolio-content position-relative">
-                <img src="assets/img/portfolio/drone-vid-1.png" class="img-fluid video-thumbnail bg-light" alt="Golden Hour Thumbnail">
+                <img src="assets/img/portfolio/drone-vid-1.png" class="img-fluid video-thumbnail bg-light"
+                  alt="Golden Hour Thumbnail">
                 <div class="portfolio-info text-start">
                   <h4 class="mb-2">Drone Video</h4>
                   <p class="mb-3">Golden Hour in Tirona Highway</p>
@@ -460,7 +493,8 @@
             <!-- DRONE VIDEO 2 -->
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-drone">
               <div class="portfolio-content position-relative">
-                <img src="assets/img/portfolio/drone-vid-2.png" class="img-fluid video-thumbnail bg-light" alt="Ilocos Norte Ride Thumbnail">
+                <img src="assets/img/portfolio/drone-vid-2.png" class="img-fluid video-thumbnail bg-light"
+                  alt="Ilocos Norte Ride Thumbnail">
                 <div class="portfolio-info text-start">
                   <h4 class="mb-2">Drone Video</h4>
                   <p class="mb-3">Ilocos Norte Holy Week Ride</p>
@@ -476,7 +510,8 @@
             <!-- DRONE VIDEO 3 -->
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-drone">
               <div class="portfolio-content position-relative">
-                <img src="assets/img/portfolio/drone-vid-3.png" class="img-fluid video-thumbnail bg-light" alt="Imus Quick Shot Thumbnail">
+                <img src="assets/img/portfolio/drone-vid-3.png" class="img-fluid video-thumbnail bg-light"
+                  alt="Imus Quick Shot Thumbnail">
                 <div class="portfolio-info text-start">
                   <h4 class="mb-2">Drone Video</h4>
                   <p class="mb-3">Imus, Malagasang Quick Shot</p>
@@ -540,7 +575,7 @@
     <!-- Services Section -->
     <section id="services" class="services section">
       <div class="container section-title" data-aos-once="false" data-aos="fade-up">
-        <h2>Services</h2>
+        <h2 class="hacker-span">Services</h2>
         <p>Combining my expertise in software engineering and drone technology, I offer a unique set of services to help
           individuals and businesses enhance their digital and technical capabilities.</p>
       </div>
@@ -552,7 +587,7 @@
             data-aos-delay="100">
             <div class="icon flex-shrink-0"><i class="bi bi-code-slash"></i></div>
             <div>
-              <h4 class="title">Java Backend Development</h4>
+              <h4 class="title hacker-span">Java Backend Development</h4>
               <p class="description">Build scalable and maintainable server-side applications using modern Java.</p>
             </div>
           </div>
@@ -561,7 +596,7 @@
             data-aos-delay="200">
             <div class="icon flex-shrink-0"><i class="bi bi-hdd-network"></i></div>
             <div>
-              <h4 class="title">Database Integration</h4>
+              <h4 class="title hacker-span">Database Integration</h4>
               <p class="description">Design and connect efficient PostgreSQL databases to support application data flow
                 and integrity.</p>
             </div>
@@ -571,7 +606,7 @@
             data-aos-delay="300">
             <div class="icon flex-shrink-0"><i class="bi bi-tools"></i></div>
             <div>
-              <h4 class="title">Computer Maintenance</h4>
+              <h4 class="title hacker-span">Computer Maintenance</h4>
               <p class="description">Diagnose, repair, and upgrade hardware and software for optimal computer
                 performance.</p>
             </div>
@@ -581,7 +616,7 @@
             data-aos-delay="400">
             <div class="icon flex-shrink-0"><i class="bi bi-controller"></i></div>
             <div>
-              <h4 class="title">Drone Operations</h4>
+              <h4 class="title hacker-span">Drone Operations</h4>
               <p class="description">Capture aerial footage and conduct flight operations for creative cinematic shots,
                 or
                 inspection needs.</p>
@@ -592,7 +627,7 @@
             data-aos-delay="500">
             <div class="icon flex-shrink-0"><i class="bi bi-laptop"></i></div>
             <div>
-              <h4 class="title">Responsive Web Design</h4>
+              <h4 class="title hacker-span">Responsive Web Design</h4>
               <p class="description">Develop clean, responsive front-end interfaces using HTML, CSS, Bootstrap 5, and
                 jQuery.</p>
             </div>
@@ -602,7 +637,7 @@
             data-aos-delay="600">
             <div class="icon flex-shrink-0"><i class="bi bi-lightbulb"></i></div>
             <div>
-              <h4 class="title">Capstone Consultation</h4>
+              <h4 class="title hacker-span">Capstone Consultation</h4>
               <p class="description">Offer guidance on I.T. Capstone projects, from ideation to implementation, based on
                 top-ranking project experience.</p>
             </div>
@@ -615,7 +650,7 @@
     <!-- Contact Section -->
     <section id="contact" class="contact section light-background py-5">
       <div class="container section-title text-start" data-aos-once="false" data-aos="fade-up">
-        <h2>Contact</h2>
+        <h2 class="hacker-span">Contact</h2>
         <p>If you have any questions or inquiries, feel free to reach out using the details below.</p>
       </div>
 
@@ -628,12 +663,12 @@
 
               <!-- Contact Info -->
               <div class="col-md-6 p-5 contact contact-info-dark">
-                <h4 class="mb-4">Contact Information</h4>
+                <h4 class="mb-4 hacker-span">Contact Information</h4>
 
                 <div class="info-item location d-flex align-items-start mb-4">
                   <i class="bi bi-geo-alt"></i>
                   <div class="ms-3">
-                    <h6 class="mb-1">My Location</h6>
+                    <h6 class="mb-1 hacker-span">My Location</h6>
                     <p class="mb-0">San Nicolas 1, Bacoor City, Cavite, Philippines, 4102</p>
                   </div>
                 </div>
@@ -641,7 +676,7 @@
                 <div class="info-item phone d-flex align-items-start mb-4">
                   <i class="bi bi-telephone"></i>
                   <div class="ms-3">
-                    <h6 class="mb-1">Phone</h6>
+                    <h6 class="mb-1 hacker-span">Phone</h6>
                     <p class="mb-0">+63 968-283-0027</p>
                   </div>
                 </div>
@@ -649,7 +684,7 @@
                 <div class="info-item email d-flex align-items-start">
                   <i class="bi bi-envelope"></i>
                   <div class="ms-3">
-                    <h6 class="mb-1">Email</h6>
+                    <h6 class="mb-1 hacker-span">Email</h6>
                     <p class="mb-0">ralphrolandg@gmail.com</p>
                   </div>
                 </div>
@@ -698,9 +733,17 @@
 
   </footer>
 
-  <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
-      class="bi bi-arrow-up-short"></i></a>
+  <div id="mobile-navmenu" class="navmenu d-xl-none mobile-bottom-nav">
+    <ul>
+      <li class="active"><a href="#home"><i class="bi bi-house"></i></a></li>
+      <li><a href="#about"><i class="bi bi-question"></i></a></li>
+      <li><a href="#skills"><i class="bi bi-person"></i></a></li>
+      <li><a href="#resume"><i class="bi bi-file-earmark-text"></i></a></li>
+      <li><a href="#portfolio"><i class="bi bi-folder"></i></a></li>
+      <li><a href="#services"><i class="bi bi-hdd-stack"></i></a></li>
+      <li><a href="#contact"><i class="bi bi-envelope"></i></a></li>
+    </ul>
+  </div>
 
   <!-- Preloader -->
   <div id="preloader">
@@ -721,6 +764,9 @@
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="assets/vendor/swal2/js/sweetalert2@11.js"></script>
+
+  <!-- Modals JS Files -->
+  <script src="assets/js/acadalyzeModal.js"></script>
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>

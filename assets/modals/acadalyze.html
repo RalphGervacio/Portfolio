@@ -1,0 +1,227 @@
+<style>
+    /* Glass effect for modal background - dark glass */
+    .glass-card {
+        background: rgba(30, 30, 30, 0.6);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-radius: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        color: #f0f0f0;
+    }
+
+    /* Inset card (pressed neumorphism) */
+    .neu-card {
+        border-radius: 16px;
+        background: #1f1f1f;
+        color: #e0e0e0;
+        border: 1px solid #2c2c2c;
+        box-shadow: inset 3px 3px 6px #161616, inset -3px -3px 6px #292929;
+    }
+
+    /* Inset soft badge */
+    .badge-soft {
+        background: #2d2d2d;
+        color: #ccc;
+        border-radius: 12px;
+        padding: 0.5em 0.75em;
+        font-size: 0.875rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        border: 1px solid #3a3a3a;
+        box-shadow: inset 2px 2px 4px #1a1a1a, inset -2px -2px 4px #383838;
+    }
+
+    /* Pressed-style button (default inset look) */
+    .btn-neu {
+        border-radius: 50px;
+        background: #2a2a2a;
+        border: 1px solid #3a3a3a;
+        color: #e0e0e0;
+        box-shadow: inset 2px 2px 6px #1e1e1e, inset -2px -2px 6px #353535;
+        transition: all 0.2s ease-in-out;
+    }
+
+    .btn-neu:hover {
+        background: #333;
+        color: #fff;
+    }
+
+    .modal-body {
+        max-height: 70vh;
+        overflow-y: auto;
+        padding-right: 15px;
+    }
+
+    .modal-body img {
+        max-width: 100%;
+        border-radius: 12px;
+        margin-bottom: 1rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    }
+
+    .modal-header,
+    .modal-footer {
+        background-color: transparent;
+        border: none;
+    }
+
+    .modal-title {
+        color: #f0f0f0;
+    }
+
+    .modal-title i {
+        color: #0d6efd;
+    }
+
+    .text-muted {
+        color: #aaa !important;
+    }
+
+    .modal-body h6 {
+        color: #ddd;
+    }
+</style>
+
+<!-- Modal HTML -->
+<div class="modal fade" id="projectModal" tabindex="-1" aria-labelledby="projectModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content glass-card">
+            <div class="modal-header">
+                <h5 class="modal-title d-flex align-items-center" id="projectModalLabel">
+                    Acadalyze - eLMS WebApp
+                </h5>
+            </div>
+
+            <div class="modal-body">
+                <!-- Overview -->
+                <div class="mb-4">
+                    <h6 class="fw-bold mb-3">
+                        <i class="bi bi-info-circle me-2"></i>Project Overview
+                    </h6>
+                    <p class="text-white">
+                        Acadalyze is a comprehensive eLearning Management System (LMS) for online education.
+                        It supports course creation, student management, and interactive learning.
+                    </p>
+                </div>
+
+                <!-- Key Features -->
+                <div class="mb-4">
+                    <h6 class="fw-bold mb-3">
+                        <i class="bi bi-gear me-2"></i>Key Features
+                    </h6>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>User authentication
+                                    and role management</li>
+                                <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Real-time
+                                    notifications using WebSocket</li>
+                                <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Real-time messaging
+                                    using WebSocket</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Interactive
+                                    assignments and quizzes</li>
+                                <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Progress tracking
+                                    and analytics</li>
+                                <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i> Course creation
+                                    and management</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Technology Stack -->
+                <div class="mb-4">
+                    <h6 class="fw-bold mb-3">
+                        <i class="bi bi-stack me-2"></i>Technology Stack
+                    </h6>
+                    <div class="d-flex flex-wrap gap-2">
+                        <span class="badge-soft"><img src="assets/img/skills/springboot.svg" width="16">Spring
+                            Boot</span>
+                        <span class="badge-soft"><img src="assets/img/skills/thymeleaf.svg" width="16">Thymeleaf</span>
+                        <span class="badge-soft"><img src="assets/img/skills/websocket.svg" width="16">WebSocket</span>
+                        <span class="badge-soft"><img src="assets/img/skills/postgresql.svg"
+                                width="16">PostgreSQL</span>
+                        <span class="badge-soft"><img src="assets/img/skills/html5.svg" width="16">HTML5</span>
+                        <span class="badge-soft"><img src="assets/img/skills/jquery.svg" width="16">jQuery</span>
+                        <span class="badge-soft"><img src="assets/img/skills/bootstrap5.svg" width="16">Bootstrap
+                            5</span>
+                        <span class="badge-soft"><img src="assets/img/skills/java-no-name.svg" width="16">Java</span>
+                    </div>
+                </div>
+
+                <!-- Highlights -->
+                <div class="mb-4">
+                    <h6 class="fw-bold mb-3">
+                        <i class="bi bi-trophy me-2"></i>Project Highlights
+                    </h6>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <div class="neu-card p-3 h-100">
+                                <h6 class="card-title text-success">
+                                    <i class="bi bi-lightning me-2"></i>Real-time Features
+                                </h6>
+                                <p class="small text-muted">WebSocket for instant messaging and live notifications</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="neu-card p-3 h-100">
+                                <h6 class="card-title text-info">
+                                    <i class="bi bi-shield-check me-2"></i>Secure Authentication
+                                </h6>
+                                <p class="small text-muted">Role-based access control with Spring Security</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Previews -->
+                <div class="mb-4">
+                    <h6 class="fw-bold mb-3">
+                        <i class="bi bi-images me-2"></i>Interface Previews
+                    </h6>
+                    <img src="assets/img/modal-img/real-time-chat.png" alt="Real-Time Chat Preview">
+                    <img src="assets/img/modal-img/manage-users-preview.png" alt="Manage Users Preview">
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn-neu text-danger px-4 me-2" data-bs-dismiss="modal">
+                    <i class="bi bi-x-circle me-1"></i>Close
+                </button>
+                <a href="#portfolio" onclick="showLiveDemoAlert()"
+                    class="btn-neu px-4 me-2 text-white fw-bold text-decoration-none">
+                    <i class="bi bi-eye me-1"></i>Live Demo
+                </a>
+                <a href="https://github.com/RalphGervacio/Acadalyze.git" target="_blank"
+                    class="btn-neu px-4 text-white fw-bold text-decoration-none">
+                    <i class="bi bi-github me-1"></i>View Code
+                </a>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    function showLiveDemoAlert() {
+        Swal.fire({
+            icon: 'info',
+            title: 'Please Note',
+            text: 'The Live Demo may load slowly due to Render\'s free hosting tier, especially on the Messages page. Thank you for your patience!',
+            confirmButtonText: 'Continue to Demo',
+            confirmButtonColor: '#0d6efd',
+            background: '#1f1f1f',
+            color: '#f0f0f0'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.open('https://acadalyze.onrender.com', '_blank');
+            }
+        });
+    }
+</script>
