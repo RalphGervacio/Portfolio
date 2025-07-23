@@ -44,13 +44,15 @@ $(document).ready(function () {
   //===== Preloader =====//
   if (preloader.length && !sessionStorage.getItem('preloaderShown')) {
     $(window).on('load', function () {
-      sessionStorage.setItem('preloaderShown', 'true'); // Mark as shown
+      sessionStorage.setItem('preloaderShown', 'true'); 
 
       setTimeout(function () {
         preloader.addClass('fade-out');
 
         setTimeout(function () {
           preloader.remove();
+
+          $('#mobile-navmenu').removeClass('d-none');
 
           if (!sessionStorage.getItem('musicModalShown')) {
             sessionStorage.setItem('musicModalShown', 'true');
@@ -62,6 +64,7 @@ $(document).ready(function () {
 
         }, 1000);
       }, 2000);
+
     });
   } else {
     preloader.remove();
