@@ -1,8 +1,22 @@
 function updateMobileNavStepper() {
     const mobileNavUl = $('#mobile-navmenu ul');
     const activeIndex = $('#mobile-navmenu li.active').index();
+    const totalTabs = $('#mobile-navmenu li').length;
 
     mobileNavUl.attr('data-active', activeIndex);
+
+    // Calculate dynamic width based on tab positions
+    if (activeIndex === 0) {
+        mobileNavUl.css('--progress-width', '0%');
+    } else if (activeIndex === totalTabs - 1) {
+        // Last tab - fill to 100% of available space
+        mobileNavUl.css('--progress-width', '100%');
+    } else {
+        // Calculate percentage based on active tab position
+        // Since the line stops before the last tab, we divide by (totalTabs - 1)
+        const progressPercent = (activeIndex / (totalTabs - 1)) * 100;
+        mobileNavUl.css('--progress-width', progressPercent + '%');
+    }
 
     $('#mobile-navmenu li').each(function (index) {
         const $li = $(this);

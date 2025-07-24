@@ -281,14 +281,14 @@ h6 {
     position: relative;
   }
 
-  /* Progress line background - stops before last tab */
+  /* Progress line background - extends to contact section */
   .mobile-bottom-nav ul::before {
     content: "";
     position: absolute;
     top: 50%;
     left: 20px;
-    right: calc(20px + 40px + 20px);
-    /* Stop before the last tab (20px padding + 40px tab width + 20px gap) */
+    right: 20px;
+    /* Now extends all the way to the contact section */
     height: 3px;
     background-color: #2a2a2a;
     transform: translateY(-50%);
@@ -310,43 +310,29 @@ h6 {
     transform: translateY(-50%);
     z-index: 2;
     border-radius: 2px;
-    width: 0%;
+    width: var(--progress-width, 0%);
     transition: width 0.4s ease;
     box-shadow: 0 0 6px rgba(255, 0, 0, 0.4);
-  }
-
-  /* Progress fill states based on active item - adjusted to stop before contact */
-  .mobile-bottom-nav ul[data-active="0"]::after {
-    width: 0%;
-  }
-
-  .mobile-bottom-nav ul[data-active="1"]::after {
-    width: 20%;
-  }
-
-  .mobile-bottom-nav ul[data-active="2"]::after {
-    width: 30%;
-  }
-
-  .mobile-bottom-nav ul[data-active="3"]::after {
-    width: 50%;
-  }
-
-  .mobile-bottom-nav ul[data-active="4"]::after {
-    width: 70%;
-  }
-
-  .mobile-bottom-nav ul[data-active="5"]::after {
-    width: 80%;
-  }
-
-  .mobile-bottom-nav ul[data-active="6"]::after {
-    width: 90%;
   }
 
   .mobile-bottom-nav li {
     position: relative;
     z-index: 3;
+  }
+
+  /* Left line for home button (1st child) */
+  .mobile-bottom-nav li:first-child::before {
+    content: "";
+    position: absolute;
+    left: -20px;
+    top: 50%;
+    width: 20px;
+    height: 3px;
+    background-color: #ff0000;
+    transform: translateY(-50%);
+    z-index: 2;
+    border-radius: 2px;
+    box-shadow: 0 0 6px rgba(255, 0, 0, 0.4);
   }
 
   .mobile-bottom-nav a {
