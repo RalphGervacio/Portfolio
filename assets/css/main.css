@@ -1041,6 +1041,51 @@ section,
     -8px -8px 20px rgba(255, 255, 255, 0.05);
 }
 
+.swal2-popup {
+  background: #121212 !important;
+  color: #ff4c4c !important;
+  border-radius: 20px !important;
+  box-shadow:
+    8px 8px 20px #0a0a0a,
+    -8px -8px 20px #1a1a1a;
+}
+
+.swal2-confirm {
+  background: #1f3124 !important;
+  color: #00ff88 !important;
+  border: none !important;
+  border-radius: 12px !important;
+  box-shadow:
+    inset 2px 2px 4px #0a0a0a,
+    inset -2px -2px 4px #2a2a2a;
+  transition: 0.3s;
+}
+
+.swal2-confirm:hover {
+  background: #264b34 !important;
+  box-shadow:
+    2px 2px 6px #0a0a0a,
+    -2px -2px 6px #2a2a2a;
+}
+
+.swal2-cancel {
+  background: #1a1a1a !important;
+  color: #ff4c4c !important;
+  border: none !important;
+  border-radius: 12px !important;
+  box-shadow:
+    inset 2px 2px 4px #0a0a0a,
+    inset -2px -2px 4px #2a2a2a;
+  transition: 0.3s;
+}
+
+.swal2-cancel:hover {
+  background: #222 !important;
+  box-shadow:
+    2px 2px 6px #0a0a0a,
+    -2px -2px 6px #2a2a2a;
+}
+
 /* Responsive Glass Size */
 @media (max-width: 768px) {
   .custom-glass {
@@ -1050,6 +1095,16 @@ section,
 }
 
 @media (max-width: 768px) {
+  .home {
+    justify-content: center !important;
+    text-align: center;
+  }
+
+  .home .container {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   .home h2 {
     font-size: 32px;
   }

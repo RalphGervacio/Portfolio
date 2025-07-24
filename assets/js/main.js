@@ -145,14 +145,13 @@ $(document).ready(function () {
     const word = items[index];
 
     animateHackerText($el, word, () => {
-      const nextIndex = index + 1;
-      if (nextIndex < items.length) {
-        cycleWordsOnce(nextIndex);
-      }
+      const nextIndex = (index + 1) % items.length; // 🔁 loop back to 0
+      cycleWords(nextIndex); // ✅ call itself again
     });
   }
 
-  cycleWords();
+  cycleWords(); // 🔥 Start infinite loop every page load
+
 
   //===== Hacker Text Effect for AOS-triggered spans =====//
   const hackerChars = "!@#$%^&*()_+=-<>?/|{}[]0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -361,10 +360,30 @@ $(document).ready(function () {
         Swal.fire({
           title: 'Downloading...',
           html: `
-        <div class="spinner-container" style="display: flex; justify-content: center; align-items: center; height: 80px;">
-          <div class="custom-spinner" style="width: 40px; height: 40px; border: 4px solid #999; border-top-color: #000; border-radius: 50%; animation: spin 1s linear infinite;"></div>
-        </div>
-        <p style="margin-top: 10px;">Please wait while the CV is being downloaded.</p>
+        <div class="spinner-container" style="
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100px;
+          ">
+            <div class="custom-spinner" style="
+              width: 52px;
+              height: 52px;
+              border-radius: 50%;
+              border: 4px solid rgba(255, 255, 255, 0.05);
+              border-top: 4px solid #ff0033;
+              background: rgba(30, 30, 30, 0.3);
+              backdrop-filter: blur(12px);
+              -webkit-backdrop-filter: blur(12px);
+              box-shadow:
+                4px 4px 8px rgba(0, 0, 0, 0.9),             
+                -4px -4px 8px rgba(255, 255, 255, 0.04),     
+                0 0 12px #ff0033,                            
+                inset 0 0 8px #ff0033;                      
+              animation: spin 1s linear infinite;
+            "></div>
+          </div>
+          <p style="margin-top: 12px; text-align: center;">Please wait while the CV is being downloaded.</p>
       `,
           showConfirmButton: false,
           allowOutsideClick: false,
