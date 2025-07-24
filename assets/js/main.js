@@ -68,6 +68,7 @@ $(document).ready(function () {
     });
   } else {
     preloader.remove();
+    $('#mobile-navmenu').removeClass('d-none');
   }
 
 

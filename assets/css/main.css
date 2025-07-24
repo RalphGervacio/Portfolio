@@ -248,7 +248,7 @@ h6 {
   }
 }
 
-/* Mobile Bottom Nav - Dark Neumorphism */
+/* Mobile Bottom Nav - Stepper Design with Dark Neumorphism */
 @media (max-width: 1199px) {
   body {
     padding-bottom: 70px;
@@ -273,57 +273,148 @@ h6 {
 
   .mobile-bottom-nav ul {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     margin: 0;
-    padding: 0;
+    padding: 0 20px;
     list-style: none;
+    position: relative;
+  }
+
+  /* Progress line background */
+  .mobile-bottom-nav ul::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    right: 20px;
+    height: 3px;
+    background-color: #2a2a2a;
+    transform: translateY(-50%);
+    z-index: 1;
+    border-radius: 2px;
+    box-shadow:
+      inset 1px 1px 3px rgba(0, 0, 0, 0.6),
+      inset -1px -1px 3px rgba(255, 255, 255, 0.02);
+  }
+
+  /* Progress line fill */
+  .mobile-bottom-nav ul::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    height: 3px;
+    background: linear-gradient(90deg, #ff0000, #ff4444);
+    transform: translateY(-50%);
+    z-index: 2;
+    border-radius: 2px;
+    width: 0%;
+    transition: width 0.4s ease;
+    box-shadow: 0 0 6px rgba(255, 0, 0, 0.4);
+  }
+
+  /* Progress fill states based on active item */
+  .mobile-bottom-nav ul[data-active="0"]::after {
+    width: 0%;
+  }
+
+  .mobile-bottom-nav ul[data-active="1"]::after {
+    width: 16.66%;
+  }
+
+  .mobile-bottom-nav ul[data-active="2"]::after {
+    width: 33.33%;
+  }
+
+  .mobile-bottom-nav ul[data-active="3"]::after {
+    width: 50%;
+  }
+
+  .mobile-bottom-nav ul[data-active="4"]::after {
+    width: 66.66%;
+  }
+
+  .mobile-bottom-nav ul[data-active="5"]::after {
+    width: 83.33%;
+  }
+
+  .mobile-bottom-nav ul[data-active="6"]::after {
+    width: 100%;
   }
 
   .mobile-bottom-nav li {
-    flex: 1;
-    text-align: center;
+    position: relative;
+    z-index: 3;
   }
 
   .mobile-bottom-nav a {
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    padding: 10px;
-    color: #f1f1f1;
-    border-radius: 12px;
+    width: 40px;
+    height: 40px;
+    color: #666;
+    border-radius: 50%;
     background-color: #121212;
     text-decoration: none;
-    box-shadow:
-      inset 2px 2px 4px rgba(0, 0, 0, 0.5),
-      inset -2px -2px 4px rgba(255, 255, 255, 0.02);
+    border: 2px solid #2a2a2a;
     transition: all 0.3s ease;
+    box-shadow:
+      2px 2px 4px rgba(0, 0, 0, 0.6),
+      -2px -2px 4px rgba(255, 255, 255, 0.02);
   }
 
   .mobile-bottom-nav a:hover {
-    color: #ffffff;
+    color: #ccc;
     transform: scale(1.1);
+    border-color: #444;
     box-shadow:
-      2px 2px 6px rgba(0, 0, 0, 0.6),
-      -2px -2px 6px rgba(255, 255, 255, 0.03);
+      3px 3px 6px rgba(0, 0, 0, 0.7),
+      -3px -3px 6px rgba(255, 255, 255, 0.03);
   }
 
   .mobile-bottom-nav a.active {
     background-color: #1a1a1a;
     color: #ffffff;
+    border-color: #ff0000;
     box-shadow:
-      inset 4px 4px 8px rgba(0, 0, 0, 0.7),
-      inset -4px -4px 8px rgba(255, 255, 255, 0.03),
-      0 0 4px rgba(255, 0, 0, 0.3);
+      inset 2px 2px 4px rgba(0, 0, 0, 0.7),
+      inset -2px -2px 4px rgba(255, 255, 255, 0.03),
+      0 0 8px rgba(255, 0, 0, 0.4);
   }
 
   .mobile-bottom-nav a.active i {
     color: #ff0000;
   }
 
+  .mobile-bottom-nav a.completed {
+    background-color: #1a1a1a;
+    color: #ff4444;
+    border-color: #ff4444;
+    box-shadow:
+      2px 2px 4px rgba(0, 0, 0, 0.6),
+      -2px -2px 4px rgba(255, 255, 255, 0.02),
+      0 0 4px rgba(255, 68, 68, 0.3);
+  }
+
+  .mobile-bottom-nav a.completed i {
+    color: #ff4444;
+  }
+
   .mobile-bottom-nav i {
-    font-size: 20px;
+    font-size: 16px;
+  }
+
+  /* Animation for progress line */
+  @keyframes progressFill {
+    from {
+      width: 0%;
+    }
+
+    to {
+      width: var(--target-width);
+    }
   }
 }
 
