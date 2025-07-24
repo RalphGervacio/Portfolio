@@ -281,13 +281,14 @@ h6 {
     position: relative;
   }
 
-  /* Progress line background */
+  /* Progress line background - stops before last tab */
   .mobile-bottom-nav ul::before {
     content: "";
     position: absolute;
     top: 50%;
     left: 20px;
-    right: 20px;
+    right: calc(20px + 40px + 20px);
+    /* Stop before the last tab (20px padding + 40px tab width + 20px gap) */
     height: 3px;
     background-color: #2a2a2a;
     transform: translateY(-50%);
@@ -298,7 +299,7 @@ h6 {
       inset -1px -1px 3px rgba(255, 255, 255, 0.02);
   }
 
-  /* Progress line fill */
+  /* Progress line fill - stops before last tab */
   .mobile-bottom-nav ul::after {
     content: "";
     position: absolute;
@@ -314,17 +315,17 @@ h6 {
     box-shadow: 0 0 6px rgba(255, 0, 0, 0.4);
   }
 
-  /* Progress fill states based on active item */
+  /* Progress fill states based on active item - adjusted to stop before contact */
   .mobile-bottom-nav ul[data-active="0"]::after {
     width: 0%;
   }
 
   .mobile-bottom-nav ul[data-active="1"]::after {
-    width: 16.66%;
+    width: 20%;
   }
 
   .mobile-bottom-nav ul[data-active="2"]::after {
-    width: 33.33%;
+    width: 30%;
   }
 
   .mobile-bottom-nav ul[data-active="3"]::after {
@@ -332,15 +333,15 @@ h6 {
   }
 
   .mobile-bottom-nav ul[data-active="4"]::after {
-    width: 66.66%;
+    width: 70%;
   }
 
   .mobile-bottom-nav ul[data-active="5"]::after {
-    width: 83.33%;
+    width: 80%;
   }
 
   .mobile-bottom-nav ul[data-active="6"]::after {
-    width: 100%;
+    width: 90%;
   }
 
   .mobile-bottom-nav li {
