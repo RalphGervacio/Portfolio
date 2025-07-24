@@ -44,7 +44,7 @@ $(document).ready(function () {
   //===== Preloader =====//
   if (preloader.length && !sessionStorage.getItem('preloaderShown')) {
     $(window).on('load', function () {
-      sessionStorage.setItem('preloaderShown', 'true'); 
+      sessionStorage.setItem('preloaderShown', 'true');
 
       setTimeout(function () {
         preloader.addClass('fade-out');
@@ -145,7 +145,10 @@ $(document).ready(function () {
     const word = items[index];
 
     animateHackerText($el, word, () => {
-      cycleWords((index + 1) % items.length);
+      const nextIndex = index + 1;
+      if (nextIndex < items.length) {
+        cycleWordsOnce(nextIndex);
+      }
     });
   }
 
@@ -183,8 +186,16 @@ $(document).ready(function () {
         const $el = $(entry.target);
         const original = $el.attr('data-original') || $el.text();
         $el.attr('data-original', original);
-        $el.text('');
-        animateSpanHacker($el, original);
+
+        const isSwal = $el.closest('.swal2-popup').length > 0;
+        const alreadyShown = $el.attr('data-hacker-shown') === 'true';
+
+        if (!alreadyShown || isSwal) {
+          $el.text('');
+          animateSpanHacker($el, original, () => {
+            if (!isSwal) $el.attr('data-hacker-shown', 'true');
+          });
+        }
       }
     });
   }, { threshold: 0.6 });
@@ -347,49 +358,53 @@ $(document).ready(function () {
       }
     }).then((result) => {
       if (result.isConfirmed) {
-        const cvUrl = 'assets/resume/Gervacio-Ralph-Daria.pdf';
-
         Swal.fire({
           title: 'Downloading...',
           html: `
-          <div class="spinner-container" style="display: flex; justify-content: center; align-items: center; height: 80px;">
-            <div class="custom-spinner" style="width: 40px; height: 40px; border: 4px solid #999; border-top-color: #000; border-radius: 50%; animation: spin 1s linear infinite;"></div>
-          </div>
-          <p style="margin-top: 10px;">Please wait while the CV is being downloaded.</p>
-        `,
+        <div class="spinner-container" style="display: flex; justify-content: center; align-items: center; height: 80px;">
+          <div class="custom-spinner" style="width: 40px; height: 40px; border: 4px solid #999; border-top-color: #000; border-radius: 50%; animation: spin 1s linear infinite;"></div>
+        </div>
+        <p style="margin-top: 10px;">Please wait while the CV is being downloaded.</p>
+      `,
           showConfirmButton: false,
-          allowOutsideClick: false
+          allowOutsideClick: false,
+          didOpen: () => {
+            // Wait 2 seconds BEFORE starting the download
+            setTimeout(() => {
+              const cvUrl = 'assets/resume/Gervacio-Ralph-Daria.pdf';
+
+              const a = document.createElement('a');
+              a.href = cvUrl;
+              a.download = 'Gervacio-Ralph-Daria.pdf';
+              document.body.appendChild(a);
+              a.click();
+              document.body.removeChild(a);
+
+              // Success Swal after download starts
+              Swal.fire({
+                icon: 'success',
+                title: '<span class="hacker-span" id="swalSuccessTitle"></span>',
+                text: 'Thank you for downloading my CV.',
+                confirmButtonText: 'Close',
+                customClass: {
+                  popup: 'swal-dark-theme',
+                  confirmButton: 'btn btn-success'
+                },
+                buttonsStyling: false,
+                showClass: {
+                  popup: 'animate__animated animate__fadeInDown'
+                },
+                hideClass: {
+                  popup: 'animate__animated animate__fadeOutUp'
+                },
+                didOpen: () => {
+                  animateHackerText($('#swalSuccessTitle'), 'Thank You!', () => { });
+                }
+              });
+
+            }, 2000);
+          }
         });
-
-        const a = document.createElement('a');
-        a.href = cvUrl;
-        a.download = 'Gervacio-Ralph-Daria.pdf';
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-
-        setTimeout(() => {
-          Swal.fire({
-            icon: 'success',
-            title: '<span class="hacker-span" id="swalSuccessTitle"></span>',
-            text: 'Thank you for downloading my CV.',
-            confirmButtonText: 'Close',
-            customClass: {
-              popup: 'swal-dark-theme',
-              confirmButton: 'btn btn-success'
-            },
-            buttonsStyling: false,
-            showClass: {
-              popup: 'animate__animated animate__fadeInDown'
-            },
-            hideClass: {
-              popup: 'animate__animated animate__fadeOutUp'
-            },
-            didOpen: () => {
-              animateHackerText($('#swalSuccessTitle'), 'Thank You!', () => { });
-            }
-          });
-        }, 1500);
       }
     });
   });
