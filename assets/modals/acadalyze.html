@@ -194,7 +194,7 @@
                 <button type="button" class="btn-neu text-danger px-4 me-2" data-bs-dismiss="modal">
                     <i class="bi bi-x-circle me-1"></i>Close
                 </button>
-                <a href="https://acadalyze.onrender.com" onclick="showLiveDemoAlert()"
+                <a href="#portfolio" onclick="showLiveDemoAlert()"
                     class="btn-neu px-4 me-2 text-white fw-bold text-decoration-none">
                     <i class="bi bi-eye me-1"></i>Live Demo
                 </a>
@@ -214,10 +214,13 @@
             icon: 'info',
             title: 'Please Note',
             text: 'The Live Demo may load slowly due to Render\'s free hosting tier, especially on the Messages page. Thank you for your patience!',
-            confirmButtonText: 'Continue to Demo',
-            confirmButtonColor: '#0d6efd',
             background: '#1f1f1f',
-            color: '#f0f0f0'
+            color: '#f0f0f0',
+            showCancelButton: true,
+            confirmButtonText: 'Continue to Demo',
+            cancelButtonText: 'Cancel',
+            confirmButtonColor: '#0d6efd',
+            cancelButtonColor: '#6c757d'
         }).then((result) => {
             if (result.isConfirmed) {
                 window.open('https://acadalyze.onrender.com', '_blank');
