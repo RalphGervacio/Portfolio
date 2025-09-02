@@ -1,0 +1,291 @@
+<style>
+    /* Glass effect for modal background - dark glass */
+    .glass-card {
+        background: rgba(30, 30, 30, 0.6);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-radius: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        color: #f0f0f0;
+    }
+
+    /* Inset card (pressed neumorphism) */
+    .neu-card {
+        border-radius: 16px;
+        background: #1f1f1f;
+        color: #e0e0e0;
+        border: 1px solid #2c2c2c;
+        box-shadow: inset 3px 3px 6px #161616, inset -3px -3px 6px #292929;
+    }
+
+    /* Inset soft badge */
+    .badge-soft {
+        background: #2d2d2d;
+        color: #ccc;
+        border-radius: 12px;
+        padding: 0.5em 0.75em;
+        font-size: 0.875rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        border: 1px solid #3a3a3a;
+        box-shadow: inset 2px 2px 4px #1a1a1a, inset -2px -2px 4px #383838;
+    }
+
+    .badge-soft.leader {
+        border: 1px solid gold;
+        background: rgba(255, 215, 0, 0.12);
+        font-weight: 600;
+    }
+
+    .badge-soft.developer {
+        border: 1px solid #0d6efd;
+        background: rgba(13, 110, 253, 0.1);
+        font-weight: 600;
+    }
+
+
+    .badge-soft.doc {
+        border: 1px solid seagreen;
+        background: rgba(46, 139, 87, 0.08);
+    }
+
+    .badge-soft.consultant {
+        border: 1px dashed #0dcaf0;
+        background: rgba(13, 202, 240, 0.1);
+        font-style: italic;
+    }
+
+    /* Pressed-style button (default inset look) */
+    .btn-neu {
+        border-radius: 50px;
+        background: #2a2a2a;
+        border: 1px solid #3a3a3a;
+        color: #e0e0e0;
+        box-shadow: inset 2px 2px 6px #1e1e1e, inset -2px -2px 6px #353535;
+        transition: all 0.2s ease-in-out;
+    }
+
+    .btn-neu:hover {
+        background: #333;
+        color: #fff;
+    }
+
+    .modal-body {
+        max-height: 70vh;
+        overflow-y: auto;
+        padding-right: 15px;
+    }
+
+    .modal-body img {
+        max-width: 100%;
+        border-radius: 12px;
+        margin-bottom: 1rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    }
+
+    .modal-header,
+    .modal-footer {
+        background-color: transparent;
+        border: none;
+    }
+
+    .modal-title {
+        color: #f0f0f0;
+    }
+
+    .modal-title i {
+        color: #0d6efd;
+    }
+
+    .text-muted {
+        color: #aaa !important;
+    }
+
+    .modal-body h6 {
+        color: #ddd;
+    }
+</style>
+
+<!-- Modal HTML -->
+<div class="modal fade" id="projectModal" tabindex="-1" aria-labelledby="projectModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content glass-card">
+            <div class="modal-header">
+                <h5 class="modal-title d-flex align-items-center" id="projectModalLabel">
+                    CALTRON – Computational Academic Learning Tracker with Real-time Outcome-based Nudges
+                </h5>
+            </div>
+
+            <div class="modal-body">
+                <!-- Overview -->
+                <div class="mb-4">
+                    <h6 class="fw-bold mb-3"><i class="bi bi-info-circle me-2"></i>Project Overview</h6>
+                    <p class="text-white">
+                        CALTRON is a lightweight academic tool designed for students and educators.
+                        Unlike typical advising systems that are online-heavy and opaque, CALTRON
+                        provides offline-capable grade computation with a transparent weighted average formula
+                        and adaptive learning suggestions powered by machine learning.
+                    </p>
+                </div>
+
+                <!-- Project Members -->
+                <div class="mb-4">
+                    <h6 class="fw-bold mb-3"><i class="bi bi-people-fill me-2"></i>Project Members</h6>
+
+                    <!-- Leader -->
+                    <div class="d-flex flex-wrap gap-2 mb-2">
+                        <span class="badge-soft leader">
+                            <i class="bi bi-award-fill text-warning me-1"></i>
+                            Jamaica Rivera (Leader)
+                        </span>
+                    </div>
+
+                    <!-- Main Developer -->
+                    <div class="d-flex flex-wrap gap-2 mb-2">
+                        <span class="badge-soft developer">
+                            <i class="bi bi-code-slash text-primary me-1"></i>
+                            Jeriah Gervacio (Assistant Developer)
+                        </span>
+                    </div>
+
+                    <!-- Documentation Team -->
+                    <div class="d-flex flex-wrap gap-2 mb-2">
+                        <!-- Documentation Team -->
+                        <span class="badge-soft doc"><i class="bi bi-journal-text text-success me-1"></i>Ashley Jesm
+                            Macapagal (Documentation & Tester)</span>
+                        <span class="badge-soft doc"><i class="bi bi-journal-text text-success me-1"></i>Avhee Amparo
+                            (Documentation & Tester)</span>
+                        <span class="badge-soft doc"><i class="bi bi-journal-text text-success me-1"></i>Cazmhyr Shane
+                            Gallardo (Documentation & Tester)</span>
+                        <span class="badge-soft doc"><i class="bi bi-journal-text text-success me-1"></i>Ynna Mikayla
+                            Lontoc Torres (Documentation & Tester)</span>
+                        <span class="badge-soft doc"><i class="bi bi-journal-text text-success me-1"></i>Jhoana Cathrina
+                            (Documentation & Tester)</span>
+                    </div>
+
+                    <!-- Consultant -->
+                    <div class="mt-3">
+                        <span class="badge-soft consultant">
+                            <i class="bi bi-lightbulb me-1 text-info"></i>
+                            Ralph Gervacio (Consultant & Main Developer)
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Key Features -->
+                <div class="mb-4">
+                    <h6 class="fw-bold mb-3"><i class="bi bi-gear me-2"></i>Key Features</h6>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Grade computation
+                                    using Written Works, Performance Tasks, and Exams</li>
+                                <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Customizable weight
+                                    percentages</li>
+                                <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Dynamic grade and
+                                    subject selection (AJAX powered)</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Real-time results
+                                    with reset option</li>
+                                <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Interactive UI with
+                                    math animations</li>
+                                <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Offline and
+                                    Online-ready,
+                                    lightweight design</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Highlights -->
+                <div class="mb-4">
+                    <h6 class="fw-bold mb-3"><i class="bi bi-trophy me-2"></i>Project Highlights</h6>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <div class="neu-card p-3 h-100">
+                                <h6 class="card-title text-primary">
+                                    <i class="bi bi-lightning-charge-fill me-2"></i>Instant Calculations
+                                </h6>
+                                <p class="small text-muted">
+                                    Students can compute grades in real time with a single click, ensuring immediate
+                                    feedback without waiting for backend processing.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="neu-card p-3 h-100">
+                                <h6 class="card-title text-success">
+                                    <i class="bi bi-emoji-smile-fill me-2"></i>User-Friendly Design
+                                </h6>
+                                <p class="small text-muted">
+                                    Clean, responsive interface with Bootstrap 5 and animated math symbols for an
+                                    engaging learning experience.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="neu-card p-3 h-100">
+                                <h6 class="card-title text-warning">
+                                    <i class="bi bi-lightbulb-fill me-2"></i>Smart Learning Nudges
+                                </h6>
+                                <p class="small text-muted">
+                                    Suggests areas of improvement, helping students focus on Written Works, Performance
+                                    Tasks, or Exams as needed.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="neu-card p-3 h-100">
+                                <h6 class="card-title text-danger">
+                                    <i class="bi bi-shield-check me-2"></i>Reliable & Lightweight
+                                </h6>
+                                <p class="small text-muted">
+                                    Works offline and online, requires minimal resources.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Technology Stack -->
+                <div class="mb-4">
+                    <h6 class="fw-bold mb-3"><i class="bi bi-stack me-2"></i>Technology Stack</h6>
+                    <div class="d-flex flex-wrap gap-2">
+                        <span class="badge-soft"><img src="assets/img/skills/html5.svg" width="16">HTML5</span>
+                        <span class="badge-soft"><img src="assets/img/skills/jquery.svg" width="16">jQuery</span>
+                        <span class="badge-soft"><img src="assets/img/skills/bootstrap5.svg" width="16">Bootstrap
+                            5</span>
+                        <span class="badge-soft"><img src="assets/img/skills/java.svg" width="16"> Spring Boot</span>
+                        <span class="badge-soft"><img src="assets/img/skills/thymeleaf.svg" width="16">Thymeleaf</span>
+                        <span class="badge-soft"><img src="assets/img/skills/ml.jpg" width="16"> Machine Learning</span>
+                    </div>
+                </div>
+
+                <!-- Demo Image -->
+                <div class="mb-4">
+                    <h6 class="fw-bold mb-3"><i class="bi bi-images me-2"></i>Preview</h6>
+                    <img src="assets/img/modal-img/caltron-result.png" alt="CALTRON Result">
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn-neu text-danger px-4 me-2" data-bs-dismiss="modal">
+                    <i class="bi bi-x-circle me-1"></i>Close
+                </button>
+                <a href="https://caltron.onrender.com/caltron/homepage" target="_blank"
+                    class="btn-neu px-4 me-2 text-white fw-bold text-decoration-none">
+                    <i class="bi bi-eye me-1"></i>Try Demo
+                </a>
+                <a href="https://github.com/RalphGervacio/Caltron" target="_blank"
+                    class="btn-neu px-4 text-white fw-bold text-decoration-none">
+                    <i class="bi bi-github me-1"></i>View Code
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -10,6 +10,9 @@ function loadProjectModal(project) {
         case 'tubeline':
             modalPath = 'assets/modals/tubeline.html';
             break;
+        case 'caltron':
+            modalPath = 'assets/modals/caltron.html';
+            break;
         default:
             console.error('Unknown project:', project);
             alert('Invalid project selected.');
