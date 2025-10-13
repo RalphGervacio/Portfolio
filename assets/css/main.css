@@ -1147,6 +1147,12 @@ section,
 /*--------------------------------------------------------------
 # Skills Section
 --------------------------------------------------------------*/
+:root {
+  --neu-bg: #1f1f1f;
+  --neu-light: #292929;
+  --neu-dark: #161616;
+  --card-text-color: #e0e0e0;
+}
 
 .skills .skills-content {
   display: grid;
@@ -1172,14 +1178,13 @@ section,
 }
 
 .skills .skill-card {
-  background: var(--card-background);
-  border-radius: 15px;
+  background: var(--neu-bg);
+  border-radius: 20px;
   padding: 30px 20px;
   text-align: center;
   position: relative;
   overflow: hidden;
   transition: color 0.4s ease, transform 0.3s ease;
-  box-shadow: 0 4px 15px var(--card-shadow);
   width: 100%;
   height: 100%;
   max-width: 100%;
@@ -1189,6 +1194,10 @@ section,
   justify-content: center;
   align-items: center;
   color: var(--card-text-color);
+  border: 1px solid #2c2c2c;
+  box-shadow:
+    inset 3px 3px 6px var(--neu-dark),
+    inset -3px -3px 6px var(--neu-light);
 }
 
 .skills .skill-card:hover {
@@ -1196,7 +1205,6 @@ section,
   transform: translateY(-5px);
 }
 
-/* Hide h4 and icon on hover */
 .skills .skill-card h4,
 .skills .skill-card i {
   transition: opacity 0.3s ease;
@@ -1238,7 +1246,6 @@ section,
   font-size: 20px;
   font-weight: 600;
   margin-bottom: 5px;
-  color: inherit;
   color: var(--card-text-color);
 }
 
@@ -1246,7 +1253,6 @@ section,
   font-size: 14px;
   margin: 0;
   font-weight: 500;
-  color: inherit;
   color: var(--card-text-color);
 }
 
@@ -1256,18 +1262,7 @@ section,
   vertical-align: middle;
 }
 
-.skill-card::before {
-  /* content: ""; */
-  display: block;
-  width: 150px;
-  height: 200px;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  margin: 0 auto 1rem auto;
-}
-
-/* Background images per skill (on ::before pseudo-element) */
+/* Skill-specific background images */
 [data-skill="html"] .skill-card::before {
   background-image: url('../img/skills/html5.svg');
 }
@@ -1362,6 +1357,85 @@ section,
 /*--------------------------------------------------------------
 # Portfolio Section
 --------------------------------------------------------------*/
+.service-card {
+  background: rgba(25, 25, 25, 0.65);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #f5f5f5;
+  box-shadow:
+    0 6px 20px rgba(0, 0, 0, 0.6),
+    inset 0 0 0 rgba(0, 0, 0, 0);
+  transition: all 0.3s ease;
+}
+
+.service-card:hover {
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.75),
+    inset 0 0 0 rgba(0, 0, 0, 0);
+  transform: translateY(-2px);
+}
+
+.service-surface {
+  background: linear-gradient(145deg, #1b1b1b, #121212);
+  border-radius: 18px;
+  border: 1px solid #2a2a2a;
+  box-shadow:
+    inset 4px 4px 8px #0c0c0c,
+    inset -4px -4px 8px #2b2b2b;
+  color: #e6e6e6;
+  transition: all 0.25s ease;
+}
+
+.service-surface:hover {
+  box-shadow:
+    inset 5px 5px 10px #0a0a0a,
+    inset -5px -5px 10px #2e2e2e;
+}
+
+.custom-bullet-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.custom-bullet-list li {
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+}
+
+.custom-bullet-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: -1px;
+  font-size: 22px;
+  color: #ff1a1a;
+  text-shadow: 0 0 6px #800000, 0 0 12px #ff0000;
+  animation: pulseGlow 2s infinite alternate;
+}
+
+.custom-bullet-list i {
+  margin-right: 8px;
+  color: #ff4d4d;
+  filter: drop-shadow(0 0 6px rgba(255, 0, 0, 0.3));
+}
+
+@keyframes pulseGlow {
+  0% {
+    text-shadow: 0 0 6px #660000, 0 0 10px #b30000;
+  }
+
+  100% {
+    text-shadow: 0 0 12px #ff0000, 0 0 20px #ff3333;
+  }
+}
+
 .portfolio .portfolio-filters {
   padding: 0;
   margin: 0 auto 20px auto;
@@ -1472,6 +1546,40 @@ section,
 
 .portfolio .portfolio-content:hover img {
   transform: scale(1.1);
+}
+
+.custom-bullet-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.custom-bullet-list li {
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 8px;
+  font-size: 16px;
+}
+
+.custom-bullet-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 22px;
+  color: #ff1a1a;
+  text-shadow: 0 0 6px #800000, 0 0 12px #ff0000;
+  animation: pulseGlow 2s infinite alternate;
+}
+
+@keyframes pulseGlow {
+  0% {
+    text-shadow: 0 0 6px #660000, 0 0 10px #b30000;
+  }
+
+  100% {
+    text-shadow: 0 0 12px #ff0000, 0 0 20px #ff3333;
+  }
 }
 
 /* Hover Play Icon Style */
