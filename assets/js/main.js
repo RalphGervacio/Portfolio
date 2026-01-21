@@ -10,6 +10,29 @@ $(document).ready(function () {
   const music = $('#bg-music')[0];
   music.volume = 0.05;
   let isPlaying = false;
+  updateAge();
+
+  //===== Dynamic Age Function (updates every March 21) =====//
+  function updateAge() {
+    const birthYear = 2002; 
+    const birthMonth = 2;
+    const birthDay = 21;
+
+    const today = new Date();
+    let age = today.getFullYear() - birthYear;
+
+    const birthdayThisYear = new Date(
+      today.getFullYear(),
+      birthMonth,
+      birthDay
+    );
+
+    if (today < birthdayThisYear) {
+      age--;
+    }
+
+    $('#age').text(age + ' Yrs. Old');
+  }
 
   //===== Toggle Background Music =====//
   $('#toggle-music').on('click', function () {
