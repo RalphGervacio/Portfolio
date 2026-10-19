@@ -168,12 +168,12 @@ $(document).ready(function () {
     const word = items[index];
 
     animateHackerText($el, word, () => {
-      const nextIndex = (index + 1) % items.length; // 🔁 loop back to 0
-      cycleWords(nextIndex); // ✅ call itself again
+      const nextIndex = (index + 1) % items.length; // loop back to 0
+      cycleWords(nextIndex); // call itself again
     });
   }
 
-  cycleWords(); // 🔥 Start infinite loop every page load
+  cycleWords(); // Start infinite loop every page load
 
 
   //===== Hacker Text Effect for AOS-triggered spans =====//
