@@ -14,7 +14,7 @@ $(document).ready(function () {
 
   //===== Dynamic Age Function (updates every March 21) =====//
   function updateAge() {
-    const birthYear = 2002; 
+    const birthYear = 2002;
     const birthMonth = 2;
     const birthDay = 21;
 
@@ -66,7 +66,7 @@ $(document).ready(function () {
 
   //===== Preloader =====//
   if (preloader.length && !sessionStorage.getItem('preloaderShown')) {
-    $(window).on('load', function () {
+    $(document).ready(function () {
       sessionStorage.setItem('preloaderShown', 'true');
 
       setTimeout(function () {
@@ -74,26 +74,15 @@ $(document).ready(function () {
 
         setTimeout(function () {
           preloader.remove();
-
           $('#mobile-navmenu').removeClass('d-none');
-
-          if (!sessionStorage.getItem('musicModalShown')) {
-            sessionStorage.setItem('musicModalShown', 'true');
-          }
-
-          $('#music-yes-btn').on('click', function () {
-            $('#toggle-music').trigger('click');
-          });
-
         }, 1000);
-      }, 2000);
 
+      }, 2000);
     });
   } else {
     preloader.remove();
     $('#mobile-navmenu').removeClass('d-none');
   }
-
 
   //===== Initialize AOS (Animate On Scroll) =====//
   function aosInit() {
